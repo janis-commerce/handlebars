@@ -1,0 +1,39 @@
+{
+  "name": "handlebars",
+  "version": "1.0.0",
+  "description": "For manage Handlebars with custom helpers",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "export TEST_ENV=true; mocha --exit -R nyan --recursive tests/",
+    "test-ci": "nyc --reporter=html --reporter=text mocha --recursive tests/",
+    "watch-test": "export TEST_ENV=true; mocha --exit -R nyan -w --recursive tests/",
+    "coverage": "nyc npm test",
+    "lint": "eslint lib/ tests/",
+    "build-types": "tsc lib/model.js --declaration --allowJs --emitDeclarationOnly --outDir types",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/janis-commerce/handlebars.git"
+  },
+  "author": "Janis",
+  "license": "ISC",
+  "homepage": "https://github.com/janis-commerce/handlebars.git#readme",
+  "devDependencies": {
+    "husky": "^7.0.1",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.24.1",
+    "mocha": "^9.1.0",
+    "nyc": "^15.1.0",
+    "typescript": "^4.2.3"
+  },
+  "files": [
+    "lib/",
+    "types/"
+  ],
+  "types": "types/index.d.ts",
+  "directories": {
+    "test": "tests"
+  }
+}
