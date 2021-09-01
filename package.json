@@ -35,5 +35,9 @@
   "types": "types/index.d.ts",
   "directories": {
     "test": "tests"
+  },
+  "dependencies": {
+    "ansi-to-html": "^0.7.1",
+    "showdown": "^1.9.1"
   }
 }
