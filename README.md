@@ -69,7 +69,7 @@ templateCompiled(values)
   * [in](#️in)
 
 
-### <a name="lowercase"></a>➡️ lowercase
+### <a name="lowercase"></a> ➡️ lowercase
 Return template with value in `lowercase` 😲
 
 **Template 👀**
@@ -92,7 +92,7 @@ Parameters
 <html><body><p>Phrase: "use this example!!!"</p></body></html>
 ```
 ***********************************************************
-### <a name="uppercase"></a>➡️ uppercase
+### <a name="uppercase"></a> ➡️ uppercase
 Return template with value in `uppercase` 😲
 
 **Template 👀**
@@ -116,7 +116,7 @@ Parameters
 <html><body><p>Phrase: "USE THIS EXAMPLE!!!"</p></body></html>
 ```
 ***********************************************************
-### <a name="ansi"></a>➡️ ansi
+### <a name="ansi"></a> ➡️ ansi
 Return template in html from `ansi` format 😲
 
 **Template 👀**
@@ -144,7 +144,7 @@ Parameters
 </html>
 ```
 ***********************************************************
-### <a name="markdown"></a>➡️ markdown
+### <a name="markdown"></a> ➡️ markdown
 Return template in html from `markdown` format 😲
 
 **Template 👀**
@@ -172,7 +172,7 @@ Parameters
 </html>
 ```
 ***********************************************************
-### <a name="stringify"></a>➡️ stringify
+### <a name="stringify"></a> ➡️ stringify
 Return template with a string from an object 😲
 
 **Template 👀**
@@ -231,7 +231,7 @@ Parameters
 </html>
 ```
 ***********************************************************
-### <a name="eq"></a>➡️ eq
+### <a name="eq"></a> ➡️ eq
 Checks if the first argument is `equal` to the second one
 
 Return template inside of the block if the condition is `true`
@@ -298,7 +298,7 @@ Parameters
 🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
 
 ***********************************************************
-### <a name="ne"></a>➡️ ne
+### <a name="ne"></a> ➡️ ne
 Checks if the first argument is `not equal` to the second one
 
 Return template inside of the block if the condition is `true`
@@ -366,7 +366,7 @@ Parameters
 
 ***********************************************************
 
-### <a name="replace"></a>➡️ replace
+### <a name="replace"></a> ➡️ replace
 Return template with a text with values `replaced` that be equal to an `pattern` 😲
 
 **Template 👀**
@@ -399,7 +399,7 @@ Parameters
 ```
 
 *****************************************************
-### <a name="or"></a>➡️ or
+### <a name="or"></a> ➡️ or
 Checks if any of arguments are `truthy` 
 
 Return template inside of the block if the condition is `true`
@@ -460,7 +460,7 @@ Parameters
 🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
 
 ***********************************************************
-### <a name="and"></a>➡️ and
+### <a name="and"></a> ➡️ and
 Checks if all of arguments are `truthy` 
 
 Return template inside of the block if the condition is `true`
@@ -521,7 +521,7 @@ Parameters
 🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
 
 ***********************************************************
-### <a name="indexof"></a>➡️ indexof
+### <a name="indexof"></a> ➡️ indexof
 Checks if the value exist in a array or the property exists in a object.
 
 Return template inside of the block if the condition is `true`
@@ -594,7 +594,7 @@ Parameters
 
 ***********************************************************
 
-### <a name="concat"></a>➡️ concat
+### <a name="concat"></a> ➡️ concat
 Return template with the values `concatenated` 😲
 
 **Template 👀**
@@ -625,7 +625,7 @@ Parameters
 
 ***********************************************************
 
-### <a name="stripHost"></a>➡️ stripHost
+### <a name="stripHost"></a> ➡️ stripHost
 `Strips` a host from a URL 
 
 **Template 👀**
@@ -651,7 +651,7 @@ Parameters
 
 ***********************************************************
 
-### <a name="camelize"></a>➡️ camelize
+### <a name="camelize"></a> ➡️ camelize
 Return template with value `camelized` 😲
 
 **Template 👀**
@@ -677,7 +677,7 @@ Parameters
 
 ***********************************************************
 
-### <a name="sanitize"></a>➡️ sanitize
+### <a name="sanitize"></a> ➡️ sanitize
 Return template with value `sanitized` 😲
 
 **Template 👀**
@@ -701,7 +701,7 @@ Parameters
 <html><body><p>theexampletosanitize</p></body></html>
 ```
 ***********************************************************
-### <a name="modulus"></a>➡️ modulus
+### <a name="modulus"></a> ➡️ modulus
 Make the `module` operation.
 
 Return template inside of the block if the result is `correct`
@@ -768,7 +768,7 @@ Parameters
 
 ***********************************************************
 
-### <a name="set"></a>➡️ set
+### <a name="set"></a> ➡️ set
 `Set` the value of an object's property 😲
 
 Return an empty string 
@@ -809,7 +809,7 @@ Parameters
 
 ***********************************************************
 
-### <a name="get"></a>➡️ get
+### <a name="get"></a> ➡️ get
 `Get` the value of an object's property 😲
 
 If the property not exists return an empty string 
@@ -846,7 +846,7 @@ Parameters
 
 ***********************************************************
 
-### <a name="json"></a>➡️ json
+### <a name="json"></a> ➡️ json
 Parse `json` to object 😲
 
 **Template 👀**
@@ -884,7 +884,7 @@ Parameters
 
 ***********************************************************
 
-### <a name="attributes"></a>➡️ attributes
+### <a name="attributes"></a> ➡️ attributes
 
 Generate `attributes` with an object as param 😲
 
@@ -920,7 +920,7 @@ Parameters
 </html>
 ```
 ***********************************************************
-### <a name="getToggle"></a>➡️ getToggle 
+### <a name="getToggle"></a> ➡️ getToggle 
 Return an object's property or placeholder 😲
 
 **Template 👀**
@@ -973,7 +973,7 @@ Parameters
 
 ***********************************************************
 
-### <a name="debugString"></a>➡️ debugString
+### <a name="debugString"></a> ➡️ debugString
 
 Convert object to html as `text preformatted` 😲
 
@@ -1011,7 +1011,7 @@ Parameters
 
 ***********************************************************
 
-### <a name="debug"></a>➡️ debug
+### <a name="debug"></a> ➡️ debug
 
 Convert object or value to html as `text preformatted` 😲
 
@@ -1050,7 +1050,7 @@ Parameters
 ```
 ***********************************************************
 
-### <a name="even"></a>➡️ even
+### <a name="even"></a> ➡️ even
 
 Checks if a number is `even` or `odd` 😲
 
@@ -1106,7 +1106,7 @@ Parameters
 <html><body><p>The number is odd</p></body></html>
 ```
 ***********************************************************
-### <a name="for"></a>➡️ for
+### <a name="for"></a> ➡️ for
 Make a `loop` and returns the template inside of the block and a `value incremented` for each iteration
 
 **Template 👀**
@@ -1150,7 +1150,7 @@ Parameters
 ```
 ***********************************************************
 
-### <a name="sumArgs"></a>➡️ sumArgs
+### <a name="sumArgs"></a> ➡️ sumArgs
 
 `Sum` all of arguments and return the result 😲
 
@@ -1178,7 +1178,7 @@ Parameters
 ```
 ***********************************************************
 
-### <a name="formatWeight"></a>➡️ formatWeight
+### <a name="formatWeight"></a> ➡️ formatWeight
 
 `Format` a weight value 😲
 
@@ -1213,7 +1213,7 @@ Parameters
 
 ***********************************************************
 
-### <a name="gte"></a>➡️ gte
+### <a name="gte"></a> ➡️ gte
 Checks if the first param is` greater than or equal` the second one 😲
 
 Return template inside of the block if the condition is `true`
@@ -1337,7 +1337,7 @@ Parameters
 
 ***********************************************************
 
-### <a name="lt"></a>➡️ lt
+### <a name="lt"></a> ➡️ lt
 Checks if the first param is `lower than` the second one 😲
 
 Return template inside of the block if the condition is `true`
@@ -1399,7 +1399,7 @@ Parameters
 
 ***********************************************************
 
-### <a name="lte"></a>➡️ lte
+### <a name="lte"></a> ➡️ lte
 Checks if the first param is `lower than or equal` the second one 😲
 
 Return template inside of the block if the condition is `true`
@@ -1461,7 +1461,7 @@ Parameters
 
 ***********************************************************
 
-### <a name="notIn"></a>➡️ notIn
+### <a name="notIn"></a> ➡️ notIn
 Check if the value doesn't exists in the string passed ("value1,value2",...) 😲
 
 Return template inside of the block if the condition is `true`
@@ -1525,7 +1525,7 @@ Parameters
 
 ***********************************************************
 
-### <a name="in"></a>➡️ in
+### <a name="in"></a> ➡️ in
 Check if the value exists in the string passed ("value1,value2",...) 😲
 
 Return template inside of the block if the condition is `true`
