@@ -69,7 +69,7 @@ templateCompiled(values)
   * [in](#️in)
 
 
-### <a name="lowecase"></a>➡️ lowercase
+### <a name="lowercase"></a>➡️ lowercase
 Return template with value in `lowercase` 😲
 
 **Template 👀**
