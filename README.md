@@ -34,7 +34,7 @@ templateCompiled(values)
 ## Helpers
 
 * ### *List of helpers*
-  * [lowercase](#️➡️-lowercase)
+  * [lowercase](#️lowercase)
   * [uppercase](#️uppercase)
   * [sumArgs](#sumArgs)
   * [markdown](#️markdown)
@@ -69,7 +69,7 @@ templateCompiled(values)
   * [in](#️in)
 
 
-### <a name="lowercase"></a> ➡️ lowercase
+### <a id="lowercase" name="lowercase"></a> ➡️ lowercase
 Return template with value in `lowercase` 😲
 
 **Template 👀**
