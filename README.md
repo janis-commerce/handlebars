@@ -34,7 +34,7 @@ templateCompiled(values)
 ## Helpers
 
 * ### *List of helpers*
-  * [lowercase](#️lowercase)
+  * [lowercase](#️%EF%B8%8F-lowercase)
   * [uppercase](#️uppercase)
   * [sumArgs](#sumArgs)
   * [markdown](#️markdown)
