@@ -33,6 +33,8 @@ templateCompiled(values)
 **
 ## Helpers
 
+Take me to [gt](#gt)
+
 ### ➡️ lowercase
 Return template with value in `lowercase` 😲
 
@@ -1239,7 +1241,7 @@ Parameters
 
 ***********************************************************
 
-### ➡️ gt
+### <a name="gt"></a> ➡️ gt
 Checks if the first param is `greater than` the second one 😲
 
 Return template inside of the block if the condition is `true`
