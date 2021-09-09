@@ -33,7 +33,7 @@ templateCompiled(values)
 
 ## Helpers
 
-* ### *List of helpers*
+ ### *List of helpers*
   * [lowercase](#️lowercase)
   * [uppercase](#️uppercase)
   * [sumArgs](#sumArgs)
@@ -61,7 +61,7 @@ templateCompiled(values)
   * [for](#️for)
   * [sumArgs](#sumArgs)
   * [formatWeight](#️formatWeight)
-  * [gte](#️gte)
+  * [gte](#gte)
   * [gt](#gt)
   * [lte](#️lte)
   * [lt](#️lt)
