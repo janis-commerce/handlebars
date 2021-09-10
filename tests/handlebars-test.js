@@ -26,6 +26,20 @@ describe('Handlebars', () => {
 				templateCompiled(value),
 				'<html><body><h1>Regular expressions were patterns used to match character combinations in strings.</h1></body></html>');
 		});
+
+		it('Should return an empty string if the search param is not passed', () => {
+
+			const value = {
+				text: 'Regular expressions are patterns used to match character combinations in strings.',
+				search: '',
+				flags: 'g',
+				replace: 'were'
+			};
+
+			assert.strictEqual(
+				templateCompiled(value),
+				'<html><body><h1></h1></body></html>');
+		});
 	});
 
 	context('When must render using formatDate helper', () => {
@@ -61,6 +75,30 @@ describe('Handlebars', () => {
 		});
 	});
 
+	context('When must render using isNegative as block helper', () => {
+
+		const template = '<html><body><h1>{{#isNegative value}}Hello!{{/isNegative}}</h1></body></html>';
+		const templateCompiled = Handlebars.compile(template, 'strict');
+
+		it('Should return true in html if the conditional its true', () => {
+
+			const value = {
+				value: -12
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>Hello!</h1></body></html>');
+		});
+
+		it('Should return an empty string if condition is false', () => {
+
+			const value = {
+				value: 12
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1></h1></body></html>');
+		});
+	});
+
 	context('When must render using isNegative helper', () => {
 
 		const template = '<html><body><h1>{{isNegative value}}</h1></body></html>';
@@ -82,6 +120,15 @@ describe('Handlebars', () => {
 			};
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>false</h1></body></html>');
+		});
+
+		it('Should return an empty string if the value is invalid', () => {
+
+			const value = {
+				value: 0 / 0
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1></h1></body></html>');
 		});
 	});
 
@@ -113,6 +160,20 @@ describe('Handlebars', () => {
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>6</h1></body></html>');
 		});
+
+		it('Should return the sum of all numbers without invalids values in the array in html with key', () => {
+
+			const value = {
+				array: [
+					{ number: 1 },
+					{ number: 0 / 0 },
+					{ number: 3 }
+				],
+				key: 'number'
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>4</h1></body></html>');
+		});
 	});
 
 	context('When must render using customFormatPrice helper', () => {
@@ -131,6 +192,72 @@ describe('Handlebars', () => {
 			};
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>$12.345,123</h1></body></html>');
+		});
+
+		it('Should return the price formatted without decimals in html', () => {
+
+			const value = {
+				number: 12345.12345,
+				thousands: '.',
+				decimals: ',',
+				length: 0,
+				currency: '$'
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>$12.345</h1></body></html>');
+		});
+
+		it('Should return the price formatted with default decimals length in html', () => {
+
+			const value = {
+				number: 12345.12345,
+				thousands: '.',
+				decimals: ',',
+				length: 'invalidValue',
+				currency: '$'
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>$12.345,12</h1></body></html>');
+		});
+
+		it('Should return the price formatted without thousands separator in html', () => {
+
+			const value = {
+				number: 12345.12345,
+				thousands: '',
+				decimals: ',',
+				length: 0,
+				currency: '$'
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>$12345</h1></body></html>');
+		});
+
+
+		it('Should return the price formatted with default thousands separator in html', () => {
+
+			const value = {
+				number: 12345.12345,
+				thousands: false,
+				decimals: ',',
+				length: 2,
+				currency: '$'
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>$12.345,12</h1></body></html>');
+		});
+
+		it('Should return the price formatted with default decimals separator and currency in html', () => {
+
+			const value = {
+				number: 12345.12345,
+				thousands: '.',
+				decimals: false,
+				length: 2,
+				currency: false
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>12.345,12</h1></body></html>');
 		});
 	});
 
@@ -220,6 +347,15 @@ describe('Handlebars', () => {
 			};
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>4</h1></body></html>');
+		});
+
+		it('Should return 0 if the value passed is invalid ', () => {
+
+			const value = {
+				value: 123
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>0</h1></body></html>');
 		});
 	});
 
@@ -462,6 +598,39 @@ describe('Handlebars', () => {
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>123,12</h1></body></html>');
 		});
+
+		it('Should return the weight formatted with default decimal separator ', () => {
+
+			const value = {
+				number: 123.123123,
+				decimal: false,
+				length: 2
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>123.12</h1></body></html>');
+		});
+
+		it('Should return the weight formatted without decimals ', () => {
+
+			const value = {
+				number: 123.123123,
+				decimal: ',',
+				length: 0
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>123</h1></body></html>');
+		});
+
+		it('Should return the weight formatted with default decimals length ', () => {
+
+			const value = {
+				number: 123.123123,
+				decimal: ',',
+				length: false
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>123,12</h1></body></html>');
+		});
 	});
 
 	context('When must render using sumArgs helper', () => {
@@ -478,6 +647,17 @@ describe('Handlebars', () => {
 			};
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>22</h1></body></html>');
+		});
+
+		it('Should return the sum of all arguments but without to sum the invalid values', () => {
+
+			const value = {
+				arg1: 3,
+				arg2: 9,
+				arg3: 0 / 0
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>12</h1></body></html>');
 		});
 	});
 
@@ -542,6 +722,17 @@ describe('Handlebars', () => {
 			assert.strictEqual(
 				templateCompiled(value),
 				'<html><body><h1><style>body { position: static!important;}</style><pre>[object] { key: \'Hello!\' }</pre></h1></body></html>');
+		});
+
+		it('Should return a primitive value pre formatted in html', () => {
+
+			const value = {
+				object1: 123
+			};
+
+			assert.strictEqual(
+				templateCompiled(value),
+				'<html><body><h1><style>body { position: static!important;}</style><pre>[number] 123</pre></h1></body></html>');
 		});
 	});
 
@@ -629,6 +820,19 @@ describe('Handlebars', () => {
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>Rocky</h1><h2>Balboa</h2></body></html>');
 		});
+
+
+		it('Should return an empty string if when parsing throw an error', () => {
+
+			const value = {
+				example: {
+					name: 'Rocky',
+					lastName: 'Balboa'
+				}
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body></body></html>');
+		});
 	});
 
 	context('When must render using get helper', () => {
@@ -661,6 +865,17 @@ describe('Handlebars', () => {
 					},
 					other: 'Other'
 				},
+				path: 'foo.otherProperty'
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1></h1></body></html>');
+			assert.deepStrictEqual(value.object, value.object);
+		});
+
+		it('Should return an empty string if its not object', () => {
+
+			const value = {
+				object: '',
 				path: 'foo.otherProperty'
 			};
 
@@ -711,6 +926,45 @@ describe('Handlebars', () => {
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1></h1></body></html>');
 			assert.deepStrictEqual(value.object, value.object);
+		});
+
+		it('Should return an empty string if its not object', () => {
+
+			const value = {
+				object: '',
+				path: 'foo.bar',
+				value: 'Hello!'
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1></h1></body></html>');
+			assert.deepStrictEqual(value.object, value.object);
+		});
+
+		it('Should set the value to the property specified and delete root_modules property', () => {
+
+			const value = {
+				object: {
+					foo: {
+						bar: true
+					},
+					other: 'Other'
+				},
+				path: 'foo.bar',
+				value: {
+					name: 'Example',
+					root_modules: '...'
+				}
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1></h1></body></html>');
+			assert.deepStrictEqual(value.object, {
+				foo: {
+					bar: {
+						name: 'Example'
+					}
+				},
+				other: 'Other'
+			});
 		});
 	});
 
@@ -792,7 +1046,7 @@ describe('Handlebars', () => {
 		const template = '<html><body><h1>{{concat value1 value2 value3}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return with value inside of block if the param are founded in the haystack', () => {
+		it('Should return with value inside of block if the needle are founded in the haystack', () => {
 
 			const value = {
 				value1: 'hello',
@@ -809,7 +1063,7 @@ describe('Handlebars', () => {
 		const template = '<html><body><h1>{{#indexof needle haystack}}Hello!{{/indexof}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return with value inside of block if the param are founded in the haystack', () => {
+		it('Should return with value inside of block if the needle is founded in the array', () => {
 
 			const value = {
 				needle: true,
@@ -819,11 +1073,75 @@ describe('Handlebars', () => {
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>Hello!</h1></body></html>');
 		});
 
-		it('Should return empty string if the param are not founded in the haystack', () => {
+		it('Should return with value inside of block if the needle is founded in the object', () => {
+
+			const value = {
+				needle: true,
+				haystack: {
+					true: 123,
+					name: 'Fizzmod'
+				}
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>Hello!</h1></body></html>');
+		});
+
+		it('Should return with value inside of block if the needle is equal to string', () => {
+
+			const value = {
+				needle: 'Fizzmod',
+				haystack: 'Fizzmod'
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>Hello!</h1></body></html>');
+		});
+
+		it('Should return with value inside of block if the needle is equal to number', () => {
+
+			const value = {
+				needle: 123,
+				haystack: 123
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>Hello!</h1></body></html>');
+		});
+
+		it('Should return an empty string if the needle is not equal to number', () => {
+
+			const value = {
+				needle: 123,
+				haystack: 'Hello'
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1></h1></body></html>');
+		});
+
+		it('Should return empty string if the needle is not founded in the array', () => {
 
 			const value = {
 				needle: 1,
 				haystack: [true, 123, 'Hello']
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1></h1></body></html>');
+		});
+
+		it('Should return empty string if the needle is not founded in the object', () => {
+
+			const value = {
+				needle: 'name',
+				haystack: {
+					lastname: 'Example'
+				}
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1></h1></body></html>');
+		});
+
+		it('Should return empty string if the haystack is not passed', () => {
+
+			const value = {
+				needle: 1
 			};
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1></h1></body></html>');
@@ -930,6 +1248,13 @@ describe('Handlebars', () => {
 			const value = { example: 'The example for if helper', search: 'if', replace: 'replace' };
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>The example for replace helper</h1></body></html>');
+		});
+
+		it('Should return template with default value replaced ("") in html if the param replace not pass', () => {
+
+			const value = { example: 'The example for if helper', search: 'if' };
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>The example for  helper</h1></body></html>');
 		});
 	});
 
