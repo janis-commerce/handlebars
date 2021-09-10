@@ -22,7 +22,9 @@ describe('Handlebars', () => {
 				replace: 'were'
 			};
 
-			assert.strictEqual(templateCompiled(value), '<html><body><h1>2</h1></body></html>');
+			assert.strictEqual(
+				templateCompiled(value),
+				'<html><body><h1>Regular expressions were patterns used to match character combinations in strings.</h1></body></html>');
 		});
 	});
 
@@ -56,30 +58,6 @@ describe('Handlebars', () => {
 			};
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>2</h1></body></html>');
-		});
-	});
-
-	context('When must render using isNegative helper', () => {
-
-		const template = '<html><body><h1>{{isNegative value}}</h1></body></html>';
-		const templateCompiled = Handlebars.compile(template, 'strict');
-
-		it('Should return true in html if the conditional its true', () => {
-
-			const value = {
-				value: -12
-			};
-
-			assert.strictEqual(templateCompiled(value), '<html><body><h1>true</h1></body></html>');
-		});
-
-		it('Should return false in html if the conditional its not true', () => {
-
-			const value = {
-				value: 12
-			};
-
-			assert.strictEqual(templateCompiled(value), '<html><body><h1>false</h1></body></html>');
 		});
 	});
 
