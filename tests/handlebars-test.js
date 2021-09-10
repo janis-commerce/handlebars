@@ -452,7 +452,7 @@ describe('Handlebars', () => {
 		const template = '<html><body><h1>{{formatWeight number decimal length}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return the value even in html if the index are even', () => {
+		it('Should return the weight formatted', () => {
 
 			const value = {
 				number: 123.123123,
@@ -469,7 +469,7 @@ describe('Handlebars', () => {
 		const template = '<html><body><h1>{{sumArgs arg1 arg2 arg3}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return the value even in html if the index are even', () => {
+		it('Should return the sum of all arguments', () => {
 
 			const value = {
 				arg1: 3,
@@ -487,7 +487,7 @@ describe('Handlebars', () => {
 		const template = '<html><body><h1>{{#for from to}}<li>Index: {{this}}</li>{{/for}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return the value even in html if the index are even', () => {
+		it('Should loop the content incrementing the value with 1 until to value', () => {
 
 			const value = {
 				from: 0,
@@ -531,7 +531,7 @@ describe('Handlebars', () => {
 		const template = '<html><body><h1>{{debug object1}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return the value in html', () => {
+		it('Should return a string of an object pre formatted in html', () => {
 
 			const value = {
 				object1: {
@@ -551,7 +551,7 @@ describe('Handlebars', () => {
 		const template = '<html><body><h1>{{debugString object}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return the value in html', () => {
+		it('Should return a string of an object pre formatted in html', () => {
 
 			const value = {
 				object: {
@@ -568,7 +568,7 @@ describe('Handlebars', () => {
 		const template = '<html><body><h1>{{getToggle object key placeholder}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return the value in html', () => {
+		it('Should return the content inside of the block in html', () => {
 
 			const value = {
 				object: {
@@ -600,7 +600,7 @@ describe('Handlebars', () => {
 		const template = '<html><body><h1 {{attributes example}}>Hello!</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return the value in html', () => {
+		it('Should return the attributes in html', () => {
 
 			const value = {
 				example: {
@@ -618,7 +618,7 @@ describe('Handlebars', () => {
 		const template = '<html><body>{{#json example}}<h1>{{name}}</h1><h2>{{lastName}}</h2>{{/json}}</body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return the value in html', () => {
+		it('Should return a string of an object replacing the values in the context', () => {
 
 			const value = {
 				example: JSON.stringify({
@@ -747,7 +747,7 @@ describe('Handlebars', () => {
 		const template = '<html><body><h1>{{sanitize example}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return with value in html', () => {
+		it('Should return with value sanitized', () => {
 
 			const value = {
 				example: 'ThE-example-to-saNITIZE'
@@ -762,7 +762,7 @@ describe('Handlebars', () => {
 		const template = '<html><body><h1>{{camelize example}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return with value in html', () => {
+		it('Should return with value camelized', () => {
 
 			const value = {
 				example: 'ThE example to cAMELIZE'
@@ -777,7 +777,7 @@ describe('Handlebars', () => {
 		const template = '<html><body><h1>{{stripHost url}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return with value in html', () => {
+		it('Should return the url striped in html', () => {
 
 			const value = {
 				url: 'http://google.com.ar/search'
@@ -891,7 +891,7 @@ describe('Handlebars', () => {
 		const template = '<html><body><h1>{{stringify example format}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return template with value in html', () => {
+		it('Should return string of an object without format in html', () => {
 
 			const value = {
 				example: {
@@ -904,7 +904,7 @@ describe('Handlebars', () => {
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>{"name":"Rocky","lastName":"Balboa"}</h1></body></html>');
 		});
 
-		it('Should return template with formatted value in html', () => {
+		it('Should return string of an object with format in html', () => {
 
 			const value = {
 				example: {
@@ -978,7 +978,7 @@ describe('Handlebars', () => {
 		const template = '<html><body>{{markdown example}}</body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return template with value in html', () => {
+		it('Should return the markdown value in html', () => {
 
 			const value = { example: '## Probando' };
 
@@ -991,7 +991,7 @@ describe('Handlebars', () => {
 		const template = '<html><body>{{ansi example}}</body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return template with value in html', () => {
+		it('Should return the ansi value in html', () => {
 
 			const value = { example: '\x1b[30mblack\x1b[37mwhite' };
 
