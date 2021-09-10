@@ -67,6 +67,16 @@ templateCompiled(values)
   * [lt](#lt)
   * [notIn](#notIn)
   * [in](#in)
+  * [false](#false)
+  * [true](#true)
+  * [count](#count)
+  * [hasSubStr](#hasSubStr)
+  * [customFormatPrice](#customFormatPrice)
+  * [sumArray](#sumArray)
+  * [isNegative](#isNegative)
+  * [base1Index](#base1Index)
+  * [formatDate](#formatDate)
+  * [regexReplace](#regexReplace)
 
 
 ### <a id="lowercase" name="lowercase"></a> ➡️ lowercase
