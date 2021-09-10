@@ -11,14 +11,14 @@ For manage Handlebars with custom helpers
 npm install @janiscommerce/handlebars
 ```
 
-## API
+## 📢 API
 
-## Usage
+### Usage
 ```js
 const Handlebars = require('@janiscommerce/handlebars');
 ```
 
-## Examples
+### Examples
 ```js
 const template = '<html><body><h1>Example</h1></body></html>';
 
@@ -31,9 +31,9 @@ const values = {
 templateCompiled(values)
 ```
 
-## Helpers
+## 📢 Helpers
 
- ### *List of helpers*
+* ### *List of helpers*
   * [lowercase](#lowercase)
   * [uppercase](#uppercase)
   * [sumArgs](#sumArgs)
@@ -44,7 +44,7 @@ templateCompiled(values)
   * [replace](#replace)
   * [or](#or)
   * [and](#and)
-  * [indexof]#indexof)
+  * [indexof](#indexof)
   * [concat](#concat)
   * [stripHost](#stripHost)
   * [camelize](#camelize)
@@ -59,9 +59,9 @@ templateCompiled(values)
   * [debug](#debug)
   * [even](#even)
   * [for](#for)
-  * [sumArgs]#sumArgs)
+  * [sumArgs](#sumArgs)
   * [formatWeight](#formatWeight)
-  * [gte]#gte)
+  * [gte](#gte)
   * [gt](#gt)
   * [lte](#lte)
   * [lt](#lt)
@@ -295,7 +295,7 @@ Parameters
 </html>
 ```
 
-🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
+> 🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
 
 ***********************************************************
 ### <a name="ne"></a> ➡️ ne
@@ -362,7 +362,7 @@ Parameters
 </html>
 ```
 
-🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
+> 🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
 
 ***********************************************************
 
@@ -457,7 +457,7 @@ Parameters
 </html>
 ```
 
-🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
+> 🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
 
 ***********************************************************
 ### <a name="and"></a> ➡️ and
@@ -518,7 +518,7 @@ Parameters
 </html>
 ```
 
-🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
+> 🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
 
 ***********************************************************
 ### <a name="indexof"></a> ➡️ indexof
@@ -590,7 +590,7 @@ Parameters
 </html>
 ```
 
-🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
+> 🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
 
 ***********************************************************
 
@@ -764,7 +764,7 @@ Parameters
 </html>
 ```
 
-🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
+> 🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
 
 ***********************************************************
 
@@ -1271,7 +1271,7 @@ Parameters
 </html>
 ```
 
-🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
+> 🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
 
 ***********************************************************
 
@@ -1333,7 +1333,7 @@ Parameters
 </html>
 ```
 
-🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
+> 🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
 
 ***********************************************************
 
@@ -1395,7 +1395,7 @@ Parameters
 </html>
 ```
 
-🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
+> 🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
 
 ***********************************************************
 
@@ -1457,7 +1457,7 @@ Parameters
 </html>
 ```
 
-🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
+> 🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
 
 ***********************************************************
 
@@ -1521,7 +1521,7 @@ Parameters
 </html>
 ```
 
-🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
+> 🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
 
 ***********************************************************
 
@@ -1582,4 +1582,431 @@ Parameters
 <html><body><p> Im can drink beer</p></body></html>
 ```
 
-🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
+> 🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
+
+***********************************************************
+
+### <a name="false"></a> ➡️ false
+
+Check if `all` of arguments are `false` 😲
+
+If the condition is true returns `true`, otherwise `false`
+
+**Template 👀**
+```html
+<html><body><p>{{false arg1 arg2}}</p></body></html>
+```
+
+Parameters
+* `...args`:
+    * type:
+      * `String`
+      * `Number`
+      * `Object`
+      * `Array`
+      * `Boolean`
+	* The values to check
+
+**Values ✍🏻**
+```js
+{
+    arg1: 0,
+	arg2: false
+}
+```
+**Result example 🤩**
+```html
+<html><body><p>true</p></body></html>
+```
+
+***********************************************************
+
+### <a name="true"></a> ➡️ true
+
+Check if `all` of arguments are `true` 😲
+
+If the condition is true returns `true`, otherwise `false`
+
+**Template 👀**
+```html
+<html><body><p>{{true arg1 arg2}}</p></body></html>
+```
+
+Parameters
+* `...args`:
+    * type:
+      * `String`
+      * `Number`
+      * `Object`
+      * `Array`
+      * `Boolean`
+	* The values to check
+
+**Values ✍🏻**
+```js
+{
+    arg1: "Hello!",
+	arg2: true
+}
+```
+**Result example 🤩**
+```html
+<html><body><p>true</p></body></html>
+```
+
+***********************************************************
+
+### <a name="count"></a> ➡️ count
+
+Return the `length` of a value [array, object, string] 😲
+
+**Template 👀**
+```html
+<html>
+    <body>
+        <p>{{count string}}</p>
+        <p>{{count object}}</p>
+        <p>{{count array}}</p>
+    </body>
+</html>
+```
+
+Parameters
+* `value`:
+    * type:
+      * `String`
+      * `Object`
+      * `Array`
+	* The values to check
+
+**Values ✍🏻**
+```js
+{
+    string: "Hello",
+    object: {
+        name: "Rocky",
+        lastname: "Balboa"
+    },
+    array:[1,2,3]
+}
+```
+**Result example 🤩**
+```html
+<html>
+    <body>
+        <p>5</p>
+        <p>2</p>
+        <p>3</p>
+    </body>
+</html>
+```
+
+***********************************************************
+
+### <a name="hasSubStr"></a> ➡️ hasSubStr
+
+Checks if the text contains the `subString` 😲
+
+If the condition is true returns `true`, otherwise `false`
+
+```html
+<html><body><p>{{hasSubStr text subStr}}</p></body></html>
+```
+
+Parameters
+* `text`:
+    * type:
+      * `String`
+	* The text to search the substring
+* `substring`
+    * type:
+      * `String`
+    * The substring
+
+**Values ✍🏻**
+```js
+{
+    text: "We are Fizzmod!!!",
+    substring: "We are"
+}
+```
+**Result example 🤩**
+```html
+<html><body><p>true</p></body></html>
+```
+
+👉 Also, We can write a `block`
+
+```html
+<html>
+    <body>
+        <p>
+            {{#hasSubStr text subStr}}
+                The text contains the substring
+                {{else}} The text don't contains the substring
+            {{/hasSubStr}}
+        </p>
+    </body>
+</html>
+```
+**Result example 🤩**
+```html
+<html><body><p>The text contains the substring</p></body></html>
+```
+
+⚠️ If the condition is `false` return the `else` block
+
+**Values ✍🏻**
+```js
+{
+    text: "We are Fizzmod!!!",
+    substring: "Other"
+}
+```
+**Result example 🤩**
+```html
+<html><body><p>The text don't contains the substring</p></body></html>
+```
+
+> 🔍 Also, if we don't write `else` and the condition is `false`, returns an `empty string`
+
+
+***********************************************************
+
+### <a name="customFormatPrice"></a> ➡️ customFormatPrice
+
+Format `price` 😲
+
+**Template 👀**
+```html
+<html>
+    <body>
+        <h1>{{customFormatPrice number thousands decimals length currency}}</h1>
+    </body>
+</html>
+```
+
+Parameters
+* `number`:
+    * type: `Number`
+	* The number to format to price
+* `thousands`
+    * type: `String`
+    * The thousands separator => "." or "," ...
+* `decimals`
+    * type:
+      * `String`
+    * The decimal separator => "." or "," ...
+* `length`
+    * type:
+      * `Number`
+    * The number of decimals displayed
+* `currency`
+    * type:
+      * `String`
+    * The price's currency 
+
+**Values ✍🏻**
+```js
+{
+	number: 12345.12345,
+	thousands: '.',
+	decimals: ',',
+	length: 3,
+	currency: '$'
+}
+```
+**Result example 🤩**
+```html
+<html><body><h1>$12.345,123</h1></body></html>
+```
+
+***********************************************************
+
+### <a name="sumArray"></a> ➡️ sumArray
+
+`Sum` all items values of an `array` 😲
+
+**Template 👀**
+```html
+<html><body><h1>{{sumArray array key}}</h1></body></html>
+```
+
+Parameters
+* `array`:
+    * type: `Array`
+	* The array to loop
+* `thousands`
+    * type:
+      * `Boolean`
+      * `String`
+    * The key from which to extract numbers to sum, if none, it assumes an array of numbers
+
+**Values ✍🏻**
+```js
+{
+	array: [1,2,3],
+    key: false
+}
+```
+**Result example 🤩**
+```html
+<html><body><h1>6</h1></body></html>
+```
+
+👉 Also, we can have an array of objects. We have to set the `key param` with the object's key
+
+**Values ✍🏻**
+```js
+{
+    array: [
+    	{ number: 1 },
+    	{ number: 2 },
+    	{ number: 3 }
+    ],
+    key: 'number'
+}
+```
+**Result example 🤩**
+```html
+<html><body><h1>6</h1></body></html>
+```
+
+***********************************************************
+
+### <a name="isNegative"></a> ➡️ isNegative
+
+Checks if the number is `negative` 😲
+
+If the condition is true returns `true`, otherwise `false`
+
+**Template 👀**
+```html
+<html><body><h1>{{isNegative number}}</h1></body></html>
+```
+
+Parameters
+* `number`:
+    * type:`Number`
+	* The number to check
+
+**Values ✍🏻**
+```js
+{
+	number: -1
+}
+```
+**Result example 🤩**
+```html
+<html><body><h1>true</h1></body></html>
+```
+
+***********************************************************
+
+### <a name="base1Index"></a> ➡️ base1Index
+
+`Increment` 1 to a number 😲
+
+If the condition is true returns `true`, otherwise `false`
+
+**Template 👀**
+```html
+<html><body><h1>{{base1Index number}}</h1></body></html>
+```
+
+Parameters
+* `number`:
+    * type: `Number`
+	* The number to increment
+
+**Values ✍🏻**
+```js
+{
+	number: 1
+}
+```
+**Result example 🤩**
+```html
+<html><body><h1>2</h1></body></html>
+```
+
+***********************************************************
+
+### <a name="formatDate"></a> ➡️ formatDate
+
+Format `date` 😲
+
+**Template 👀**
+```html
+<html><body><h1>{{formatDate date zone dateStyle timeStyle}}</h1></body></html>
+```
+
+Parameters
+* `date`:
+    * type:
+      * `String`
+      * `Date`
+	* The date to format
+* `zone`
+    * type: `String`
+    * The zone => 'en-GB', 'en-US', ...
+* `dateStyle`
+    * type: `String`
+    * The dateStyle => full, long, medium, short
+* `timeStyle`
+    * type: `String`
+    * The timeStyle => full, long, medium, short
+
+**Values ✍🏻**
+```js
+{
+	date: '2021-09-08T04:12:45.336Z',
+	zone: 'en-GB',
+	dateStyle: 'medium',
+	timeStyle: 'medium'
+}
+```
+**Result example 🤩**
+```html
+<html><body><h1>Sep 8, 2021, 1:12:45 AM</h1></body></html>
+```
+
+***********************************************************
+
+### <a name="regexReplace"></a> ➡️ regexReplace
+
+`Replace` the coincidence passed in the text with a value using `regex` 😲
+
+**Template 👀**
+```html
+<html><body><h1>{{regexReplace text search flags replace}}}</h1></body></html>
+```
+
+Parameters
+* `text`:
+    * type: `String`
+	* The text to analyze
+* `search`
+    * type: `String`
+    * The string to search in the text
+* `flags`
+    * type: `String`
+    * The flag for the regex
+* `replace`
+    * type: `String`
+    * The string to replace in the text
+
+**Values ✍🏻**
+```js
+{
+	text: 'Our application is AWS',
+	search: 'AWS',
+	flags: 'g',
+	replace: 'JANIS'
+}
+```
+**Result example 🤩**
+```html
+<html><body><h1>Our application is JANIS</h1></body></html>
+```
+
