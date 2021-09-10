@@ -51,12 +51,18 @@ describe('Handlebars', () => {
 
 			const value = {
 				date: '2021-09-08T04:12:45.336Z',
-				zone: 'en-GB',
+				zone: 'en-US',
 				dateStyle: 'medium',
 				timeStyle: 'medium'
 			};
 
-			assert.strictEqual(templateCompiled(value), '<html><body><h1>Sep 8, 2021, 4:12:45 AM</h1></body></html>');
+			const { date, zone, dateStyle, timeStyle } = value;
+
+			const dateParsed = new Date(date);
+
+			const dataResult = new Intl.DateTimeFormat(zone, { dateStyle, timeStyle }).format(dateParsed);
+
+			assert.strictEqual(templateCompiled(value), `<html><body><h1>${dataResult}</h1></body></html>`);
 		});
 	});
 
