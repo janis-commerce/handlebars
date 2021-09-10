@@ -56,7 +56,7 @@ describe('Handlebars', () => {
 				timeStyle: 'medium'
 			};
 
-			assert.strictEqual(templateCompiled(value), '<html><body><h1>Sep 8, 2021, 1:12:45 AM</h1></body></html>');
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>Sep 8, 2021, 4:12:45 AM</h1></body></html>');
 		});
 	});
 
