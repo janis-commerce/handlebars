@@ -613,7 +613,7 @@ describe('Handlebars', () => {
 				length: 2
 			};
 
-			assert.strictEqual(templateCompiled(value), '<html><body><h1>123.12</h1></body></html>');
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>123,12</h1></body></html>');
 		});
 
 		it('Should return the weight formatted without decimals ', () => {
@@ -1052,7 +1052,7 @@ describe('Handlebars', () => {
 		const template = '<html><body><h1>{{concat value1 value2 value3}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return with value inside of block if the needle are founded in the haystack', () => {
+		it('Should return the value concatenated', () => {
 
 			const value = {
 				value1: 'hello',
