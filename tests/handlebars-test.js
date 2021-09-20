@@ -632,7 +632,7 @@ describe('Handlebars', () => {
 			const value = {
 				number: 123.123123,
 				decimal: ',',
-				length: false
+				length: 0 / 0
 			};
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>123,12</h1></body></html>');
@@ -1066,24 +1066,24 @@ describe('Handlebars', () => {
 
 	context('When must render using indexof helper', () => {
 
-		const template = '<html><body><h1>{{#indexof needle haystack}}Hello!{{/indexof}}</h1></body></html>';
+		const template = '<html><body><h1>{{#indexof value container}}Hello!{{/indexof}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return with value inside of block if the needle is founded in the array', () => {
+		it('Should return with value inside of block if the value is founded in the container', () => {
 
 			const value = {
-				needle: true,
-				haystack: [true, 123, 'Hello']
+				value: true,
+				container: [true, 123, 'Hello']
 			};
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>Hello!</h1></body></html>');
 		});
 
-		it('Should return with value inside of block if the needle is founded in the object', () => {
+		it('Should return with value inside of block if the value is founded in the object', () => {
 
 			const value = {
-				needle: true,
-				haystack: {
+				value: true,
+				container: {
 					true: 123,
 					name: 'Fizzmod'
 				}
@@ -1092,51 +1092,51 @@ describe('Handlebars', () => {
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>Hello!</h1></body></html>');
 		});
 
-		it('Should return with value inside of block if the needle is equal to string', () => {
+		it('Should return with value inside of block if the value is equal to string', () => {
 
 			const value = {
-				needle: 'Fizzmod',
-				haystack: 'Fizzmod'
+				value: 'Fizzmod',
+				container: 'Fizzmod'
 			};
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>Hello!</h1></body></html>');
 		});
 
-		it('Should return with value inside of block if the needle is equal to number', () => {
+		it('Should return with value inside of block if the value is equal to number', () => {
 
 			const value = {
-				needle: 123,
-				haystack: 123
+				value: 123,
+				container: 123
 			};
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>Hello!</h1></body></html>');
 		});
 
-		it('Should return an empty string if the needle is not equal to number', () => {
+		it('Should return an empty string if the value is not equal to number', () => {
 
 			const value = {
-				needle: 123,
-				haystack: 'Hello'
+				value: 123,
+				container: 'Hello'
 			};
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1></h1></body></html>');
 		});
 
-		it('Should return empty string if the needle is not founded in the array', () => {
+		it('Should return empty string if the value is not founded in the container', () => {
 
 			const value = {
-				needle: 1,
-				haystack: [true, 123, 'Hello']
+				value: 1,
+				container: [true, 123, 'Hello']
 			};
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1></h1></body></html>');
 		});
 
-		it('Should return empty string if the needle is not founded in the object', () => {
+		it('Should return empty string if the value is not founded in the object', () => {
 
 			const value = {
-				needle: 'name',
-				haystack: {
+				value: 'name',
+				container: {
 					lastname: 'Example'
 				}
 			};
@@ -1144,10 +1144,10 @@ describe('Handlebars', () => {
 			assert.strictEqual(templateCompiled(value), '<html><body><h1></h1></body></html>');
 		});
 
-		it('Should return empty string if the haystack is not passed', () => {
+		it('Should return empty string if the container is not passed', () => {
 
 			const value = {
-				needle: 1
+				value: 1
 			};
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1></h1></body></html>');
