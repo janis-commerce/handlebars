@@ -44,25 +44,27 @@ describe('Handlebars', () => {
 
 	context('When must render using formatDate helper', () => {
 
-		const template = '<html><body><h1>{{formatDate date zone dateStyle timeStyle}}</h1></body></html>';
+		const template = '<html><body><h1>{{formatDate date format}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return the date formatted in html', () => {
+		it('Should return the date formatted in html when passed a format as token', () => {
 
 			const value = {
-				date: '2021-09-08T04:12:45.336Z',
-				zone: 'en-US',
-				dateStyle: 'medium',
-				timeStyle: 'medium'
+				date: '2021/3/8',
+				format: 'yyyy LLL dd'
 			};
 
-			const { date, zone, dateStyle, timeStyle } = value;
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>2021 Mar 08</h1></body></html>');
+		});
 
-			const dateParsed = new Date(date);
+		it('Should return the date formatted in html when passed a format as preset ', () => {
 
-			const dataResult = new Intl.DateTimeFormat(zone, { dateStyle, timeStyle }).format(dateParsed);
+			const value = {
+				date: '2021/3/8',
+				format: 'DATETIME_FULL'
+			};
 
-			assert.strictEqual(templateCompiled(value), `<html><body><h1>${dataResult}</h1></body></html>`);
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>2021 M03 8 0:00 ├F15: GMT-3┤</h1></body></html>');
 		});
 	});
 
@@ -365,9 +367,9 @@ describe('Handlebars', () => {
 		});
 	});
 
-	context('When must render using true helper', () => {
+	context('When must render using isTrue helper', () => {
 
-		const template = '<html><body><h1>{{true value1 value2}}</h1></body></html>';
+		const template = '<html><body><h1>{{isTrue value1 value2}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
 		it('Should return true if the condition is true', () => {
@@ -390,9 +392,9 @@ describe('Handlebars', () => {
 		});
 	});
 
-	context('When must render using false helper', () => {
+	context('When must render using isFalse helper', () => {
 
-		const template = '<html><body><h1>{{false value1 value2}}</h1></body></html>';
+		const template = '<html><body><h1>{{isFalse value1 value2}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
 		it('Should return true if the condition is true', () => {
