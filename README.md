@@ -33,6 +33,7 @@ const values = {
 templateCompiled(values)
 ```
 
+
 ## 📢 Helpers
 
 * ### *List of helpers*
@@ -1950,7 +1951,7 @@ Format `date` 😲
 
 **Template 👀**
 ```html
-<html><body><h1>{{formatDate date zone dateStyle timeStyle}}</h1></body></html>
+<html><body><h1>{{formatDate date format}}</h1></body></html>
 ```
 
 Parameters
@@ -1959,29 +1960,126 @@ Parameters
       * `String`
       * `Date`
 	* The date to format
-* `zone`
+* `format`
     * type: `String`
-    * The zone => 'en-GB', 'en-US', ...
-* `dateStyle`
-    * type: `String`
-    * The dateStyle => full, long, medium, short
-* `timeStyle`
-    * type: `String`
-    * The timeStyle => full, long, medium, short
+    * The format =>
+        * Preset: `"DATE_MED"`
+        * Tokens: `"yyyy LLL dd"`,
 
 **Values ✍🏻**
 ```js
 {
-	date: '2021-09-08T04:12:45.336Z',
-	zone: 'en-GB',
-	dateStyle: 'medium',
-	timeStyle: 'medium'
+	date: '2014-08-06T13:07:04.054',
+    format: "DATETIME_FULL_WITH_SECONDS"
 }
 ```
 **Result example 🤩**
 ```html
-<html><body><h1>Sep 8, 2021, 1:12:45 AM</h1></body></html>
+<html><body><h1>2014 M08 6 13:07:04 GMT-3</h1></body></html>
 ```
+
+Tables of `presets` and `tokens` ⬇️
+
+**Table of presets** 📋
+| **Name**   |      **Description**      |  **Example**  |
+|----------|:-------------:|------:|
+| `DATE_SHORT` | short date | `10/14/1983` |
+| `DATE_MED`| abbreviated date| `Oct 14, 1983` |
+| `DATE_FULL` | full date|`October 14, 1983` |
+| `DATE_HUGE` | full date with weekday	 |`Tuesday, October 14, 1983` |
+| `TIME_SIMPLE	` | time|`1:30 PM` |
+| `TIME_WITH_SECONDS` | time with seconds and abbreviated named offset|`1:30:23 PM EDT` |
+| `TIME_WITH_LONG_OFFSET` | time with seconds and full named offset |`1:30:23 PM Eastern Daylight Time` |
+| `TIME_24_SIMPLE` | 24-hour time|`13:30` |
+| `TIME_24_WITH_SECONDS` |24-hour time with seconds|`13:30:23` |
+| `TIME_24_WITH_SHORT_OFFSET` | 24-hour time with seconds and abbreviated named offset|`13:30:23 EDT` |
+| `TIME_24_WITH_LONG_OFFSET` | 24-hour time with seconds and full named offset|`13:30:23 Eastern Daylight Time` |
+| `DATETIME_SHORT` | short date & time|`10/14/1983, 1:30 PM` |
+| `DATETIME_MED` | abbreviated date & time|`Oct 14, 1983, 1:30 PM` |
+| `DATETIME_FULL` |full date and time with abbreviated named offset|`October 14, 1983, 1:30 PM EDT` |
+| `DATETIME_HUGE` |full date and time with weekday and full named offset|`Friday, October 14, 1983, 1:30 PM Eastern Daylight Time` |
+| `DATETIME_SHORT_WITH_SECONDS` | short date & time with seconds|`10/14/1983, 1:30:23 PM` |
+| `DATETIME_MED_WITH_SECONDS` | abbreviated date & time with seconds|`Oct 14, 1983, 1:30:23 PM` |
+| `DATETIME_FULL_WITH_SECONDS` | full date and time with abbreviated named offset with seconds|`October 14, 1983, 1:30:23 PM EDT` |
+| `DATETIME_HUGE_WITH_SECONDS` |full date and time with weekday and full named offset with seconds|`Friday, October 14, 1983, 1:30:23 PM Eastern Daylight Time` |
+
+**Table of tokens** 📋
+
+Example: `2014-08-06T13:07:04.054`
+| **Name**   |      **Description**      |  **Example**  |
+|----------|:-------------:|------:|
+| `S` | millisecond, no padding	 | `54` |
+| `SSS`| millisecond, padded to 3	| `054` |
+| `u`| 	fractional seconds, functionally identical to SSS| `054` |
+| `s`|second, no padding| `4` |
+| `ss`| second, padded to 2 padding| `04` |
+| `m`| minute, no padding| `7` |
+| `mm`|	minute, padded to 2| `07` |
+| `h`| hour in 12-hour time, no padding| `1` |
+| `hh`|hour in 12-hour time, padded to 2| `01` |
+| `H`|hour in 24-hour time, no padding| `9` |
+| `HH`|hour in 24-hour time, padded to 2| `13` |
+| `Z`|narrow offset| `+5` |
+| `ZZ`|short offset| `+05:00` |
+| `ZZZ`|techie offset| `+0500` |
+| `ZZZZ`|abbreviated named offset| `EST` |
+| `ZZZZZ`|unabbreviated named offset| `Eastern Standard Time` |
+| `z`| IANA zone| `America/New_York` |
+| `a`| meridiem| `AM` |
+| `d`| day of the month, no padding| `6` |
+| `dd`| day of the month, padded to 2| `06` |
+| `c`| day of the week, as number from 1-7 (Monday is 1, Sunday is 7)| `3` |
+| `ccc`| day of the week, as an abbreviate localized string	| `Wed` |
+| `cccc`|day of the week, as an unabbreviated localized string| `Wednesday` |
+| `ccccc`|day of the week, as a single localized letter| `W` |
+| `L`|month as an unpadded number| `8` |
+| `LL`|month as an padded number| `08` |
+| `LLL`|month as an abbreviated localized string| `Aug` |
+| `LLLL`|month as an unabbreviated localized string| `August` |
+| `LLLLL`|month as a single localized letter| `A` |
+| `y`|year, unpadded| `14` |
+| `yy`|two-digit year| `2014` |
+| `yyyy`|four- to six- digit year, pads to 4| `2014` |
+| `G`|abbreviated localized era	| `AD` |
+| `GG`|unabbreviated localized era| `Anno Domini` |
+| `GGGGG`|one-letter localized era| `A` |
+| `kk`|ISO week year, unpadded	| `14` |
+| `kkkk`|ISO week year, padded to 4| `2014` |
+| `W`|ISO week number, unpadded| `32` |
+| `WW`|ISO week number, padded to 2| `32` |
+| `o`|ordinal (day of year), unpadded| `218` |
+| `ooo`|ordinal (day of year), padded to 3| `218` |
+| `q`|quarter, no padding| `3` |
+| `qq`|quarter, padded to 2	| `03` |
+| `D`|localized numeric date| `9/4/2017` |
+| `DD`|localized date with abbreviated month| `Aug 6, 2014` |
+| `DDD`|localized date with full month| `August 6, 2014` |
+| `DDDD`|localized date with full month and weekday| `Wednesday, August 6, 2014` |
+| `t`|localized time| `9:07 AM` |
+| `tt`|localized time with seconds	| `1:07:04 PM` |
+| `ttt`|localized time with seconds and abbreviated offset| `1:07:04 PM EDT` |
+| `tttt`|localized time with seconds and full offset| `1:07:04 PM Eastern Daylight Time` |
+| `T`|localized 24-hour time| `13:07` |
+| `TT`|localized 24-hour time with seconds	| `13:07:04` |
+| `TTT`|localized 24-hour time with seconds and abbreviated offset	| `13:07:04 EDT` |
+| `TTTT`|localized 24-hour time with seconds and full offset	| `13:07:04 Eastern Daylight Time` |
+| `f`|short localized date and time	| `8/6/2014, 1:07 PM` |
+| `ff`|less short localized date and time	| `Aug 6, 2014, 1:07 PM` |
+| `fff`|verbose localized date and time| `August 6, 2014, 1:07 PM EDT` |
+| `ffff`|extra verbose localized date and time| `Wednesday, August 6, 2014, 1:07 PM Eastern Daylight Time` |
+| `F`|short localized date and time with seconds| `8/6/2014, 1:07:04 PM` |
+| `FF`|less short localized date and time with seconds	| `Aug 6, 2014, 1:07:04 PM` |
+| `FFF`|verbose localized date and time with seconds	| `August 6, 2014, 1:07:04 PM EDT` |
+| `FFFF`|extra verbose localized date and time with seconds| `Wednesday, August 6, 2014, 1:07:04 PM Eastern Daylight Time` |
+| `X`|unix timestamp in seconds		| `1407287224` |
+| `x`|unix timestamp in milliseconds	| `	1407287224054` |
+
+
+
+
+
+
+
 
 ***********************************************************
 
