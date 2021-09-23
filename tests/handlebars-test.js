@@ -1,6 +1,7 @@
 'use strict';
 
 const assert = require('assert');
+const { DateTime } = require('luxon');
 
 const {
 	Handlebars
@@ -64,7 +65,11 @@ describe('Handlebars', () => {
 				format: 'DATETIME_SHORT'
 			};
 
-			assert.strictEqual(templateCompiled(value), '<html><body><h1>2021-3-8 0:00</h1></body></html>');
+			const newDateJS = new Date(value.date);
+
+			const dt = DateTime.fromJSDate(newDateJS);
+
+			assert.strictEqual(templateCompiled(value), `<html><body><h1>${dt.toLocaleString(DateTime[value.format])}</h1></body></html>`);
 		});
 	});
 
