@@ -61,10 +61,10 @@ describe('Handlebars', () => {
 
 			const value = {
 				date: '2021/3/8',
-				format: 'DATETIME_FULL'
+				format: 'DATETIME_SHORT'
 			};
 
-			assert.strictEqual(templateCompiled(value), '<html><body><h1>2021 M03 8 0:00 ├F15: GMT-3┤</h1></body></html>');
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>2021-3-8 0:00</h1></body></html>');
 		});
 	});
 
