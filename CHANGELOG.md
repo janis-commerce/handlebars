@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.1] - 2021-09-24
+### Fixed
+- Fix helper `formatDate`
+- Improves in `README.md`
+
 ## [1.0.0] - 2021-09-24
 ### Added
 - Project inited
