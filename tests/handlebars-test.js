@@ -43,9 +43,9 @@ describe('Handlebars', () => {
 		});
 	});
 
-	context('When must render using formatDate helper', () => {
+	context('When must render using formatDate helper without zone', () => {
 
-		const template = '<html><body><h1>{{formatDate date format zone}}</h1></body></html>';
+		const template = '<html><body><h1>{{formatDate date format}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
 		it('Should return the date formatted in html when passed a format as token', () => {
@@ -61,8 +61,8 @@ describe('Handlebars', () => {
 		it('Should return the date formatted in html when passed a format as preset ', () => {
 
 			const value = {
-				date: '2021/3/8',
-				format: 'DATETIME_SHORT'
+				date: '2021-09-14T08:00:00.000Z',
+				format: 'DATETIME_SHORT_WITH_SECONDS'
 			};
 
 			const newDateJS = new Date(value.date);
@@ -71,6 +71,12 @@ describe('Handlebars', () => {
 
 			assert.strictEqual(templateCompiled(value), `<html><body><h1>${dt.toLocaleString(DateTime[value.format])}</h1></body></html>`);
 		});
+	});
+
+	context('When must render using formatDate helper with zone', () => {
+
+		const template = '<html><body><h1>{{formatDate date format zone}}</h1></body></html>';
+		const templateCompiled = Handlebars.compile(template, 'strict');
 
 		it('Should return the date formatted in html when passed a format as preset and zone', () => {
 
