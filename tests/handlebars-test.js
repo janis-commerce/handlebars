@@ -72,7 +72,7 @@ describe('Handlebars', () => {
 			assert.strictEqual(templateCompiled(value), `<html><body><h1>${dt.toLocaleString(DateTime[value.format])}</h1></body></html>`);
 		});
 
-		it('Should return the date formatted in html when passed a format as preset ', () => {
+		it('Should return the date formatted in html when passed a format as preset and zone', () => {
 
 			const value = {
 				date: '3/8/2001',

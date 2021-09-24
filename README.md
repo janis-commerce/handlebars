@@ -70,8 +70,8 @@ templateCompiled(values)
   * [lt](#lt)
   * [notIn](#notIn)
   * [in](#in)
-  * [false](#false)
-  * [true](#true)
+  * [isFalse](#isFalse)
+  * [isTrue](#isTrue)
   * [count](#count)
   * [hasSubStr](#hasSubStr)
   * [customFormatPrice](#customFormatPrice)
@@ -1599,7 +1599,7 @@ Parameters
 
 ***********************************************************
 
-### <a name="false"></a> ➡️ false
+### <a name="isFalse"></a> ➡️ isFalse
 
 Check if `all` of arguments are `false` 😲
 
@@ -1607,7 +1607,7 @@ If the condition is true returns `true`, otherwise `false`
 
 **Template 👀**
 ```html
-<html><body><p>{{false arg1 arg2}}</p></body></html>
+<html><body><p>{{isFalse arg1 arg2}}</p></body></html>
 ```
 
 Parameters
@@ -1634,7 +1634,7 @@ Parameters
 
 ***********************************************************
 
-### <a name="true"></a> ➡️ true
+### <a name="isTrue"></a> ➡️ isTrue
 
 Check if `all` of arguments are `true` 😲
 
@@ -1642,7 +1642,7 @@ If the condition is true returns `true`, otherwise `false`
 
 **Template 👀**
 ```html
-<html><body><p>{{true arg1 arg2}}</p></body></html>
+<html><body><p>{{isTrue arg1 arg2}}</p></body></html>
 ```
 
 Parameters
@@ -1965,6 +1965,9 @@ Parameters
     * The format =>
         * Preset: `"DATE_MED"`
         * Tokens: `"yyyy LLL dd"`,
+* `zone`
+    * type: `String`
+    * The zone to format the date
 
 **Values ✍🏻**
 ```js
@@ -1978,6 +1981,20 @@ Parameters
 <html><body><h1>2014 M08 6 13:07:04 GMT-3</h1></body></html>
 ```
 
+👉Also, we can pass the `zone`
+
+**Values ✍🏻**
+```js
+{
+	date: '3/8/2001',
+	format: 'DATETIME_FULL',
+	zone: 'en-AU'
+}
+```
+**Result example 🤩**
+```html
+<html><body><h1>March 8, 2001, 12:00 AM GMT-3</h1></body></html>
+```
 Tables of `presets` and `tokens` ⬇️
 
 **Table of presets** 📋
