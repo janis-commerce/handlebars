@@ -45,7 +45,7 @@ describe('Handlebars', () => {
 
 	context('When must render using formatDate helper', () => {
 
-		const template = '<html><body><h1>{{formatDate date format}}</h1></body></html>';
+		const template = '<html><body><h1>{{formatDate date format zone}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
 		it('Should return the date formatted in html when passed a format as token', () => {
@@ -68,6 +68,21 @@ describe('Handlebars', () => {
 			const newDateJS = new Date(value.date);
 
 			const dt = DateTime.fromJSDate(newDateJS);
+
+			assert.strictEqual(templateCompiled(value), `<html><body><h1>${dt.toLocaleString(DateTime[value.format])}</h1></body></html>`);
+		});
+
+		it('Should return the date formatted in html when passed a format as preset ', () => {
+
+			const value = {
+				date: '3/8/2001',
+				format: 'DATETIME_FULL',
+				zone: 'en-AU'
+			};
+
+			const newDateJS = new Date(value.date);
+
+			const dt = DateTime.fromJSDate(newDateJS).setLocale(value.zone);
 
 			assert.strictEqual(templateCompiled(value), `<html><body><h1>${dt.toLocaleString(DateTime[value.format])}</h1></body></html>`);
 		});
