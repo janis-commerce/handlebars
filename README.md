@@ -2,7 +2,7 @@
 
 ![Build Status](https://github.com/janis-commerce/handlebars/workflows/Build%20Status/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/janis-commerce/handlebars/badge.svg?branch=master)](https://coveralls.io/github/janis-commerce/handlebars?branch=master)
-[![npm version](https://badge.fury.io/js/handlebars.svg)](https://www.npmjs.com/package/@janiscommerce/handlebars)
+[![npm version](https://badge.fury.io/js/%40janiscommerce%2Fhandlebars.svg)](https://www.npmjs.com/package/@janiscommerce/handlebars)
 
 For manage Handlebars with custom helpers
 
