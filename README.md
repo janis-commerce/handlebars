@@ -2,7 +2,7 @@
 
 ![Build Status](https://github.com/janis-commerce/handlebars/workflows/Build%20Status/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/janis-commerce/handlebars/badge.svg?branch=master)](https://coveralls.io/github/janis-commerce/handlebars?branch=master)
-[![npm version](https://badge.fury.io/js/handlebars.svg)](https://www.npmjs.com/package/handlebars)
+[![npm version](https://badge.fury.io/js/handlebars.svg)](https://www.npmjs.com/package/@janiscommerce/handlebars)
 
 For manage Handlebars with custom helpers
 
@@ -27,7 +27,7 @@ const template = '<html><body><h1>Example</h1></body></html>';
 const templateCompiled = Handlebars.compile(template, 'strict');
 
 const values = {
-    ...
+	...
 }
 
 templateCompiled(values)
@@ -151,9 +151,9 @@ Parameters
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <span style="color:#2e3436">black<span style="color:#c5c5c5">white</span></span>
-    </body>
+	<body>
+		<span style="color:#2e3436">black<span style="color:#c5c5c5">white</span></span>
+	</body>
 </html>
 ```
 ***********************************************************
@@ -173,15 +173,15 @@ Parameters
 **Values ✍🏻**
 ```js
 {
-    example: "## Test"
+	example: "## Test"
 }
 ```
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <h2 id="test">Test</h2>
-    </body>
+	<body>
+		<h2 id="test">Test</h2>
+	</body>
 </html>
 ```
 ***********************************************************
@@ -197,13 +197,13 @@ Parameters
 	* type: `Object`
 	* The object to be string
 * `format`:
-    * type: `Boolean`
-    * Option to format the object
+	* type: `Boolean`
+	* Option to format the object
 
 **Values ✍🏻**
 ```js
 {
-    example: {
+	example: {
 		name: "Rocky",
 		lastName: "Balboa"
 	},
@@ -213,17 +213,17 @@ Parameters
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <p>{"name":"Rocky","lastName":"Balboa"}</p>
-    </body>
+	<body>
+		<p>{"name":"Rocky","lastName":"Balboa"}</p>
+	</body>
 </html>
 ```
-👉 Also, if we can pass the `format` value to `true`... 
+👉 Also, if we can pass the `format` value to `true`...
 
 **Values ✍🏻**
 ```js
 {
-    example: {
+	example: {
 		name: "Rocky",
 		lastName: "Balboa"
 	},
@@ -233,14 +233,14 @@ Parameters
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <p>
-            {
-                "name": "Rocky",
-                "lastName": "Balboa"
-            }
-        </p>
-    </body>
+	<body>
+		<p>
+			{
+				"name": "Rocky",
+				"lastName": "Balboa"
+			}
+		</p>
+	</body>
 </html>
 ```
 ***********************************************************
@@ -252,41 +252,41 @@ Return template inside of the block if the condition is `true`
 **Template 👀**
 ```html
 <html>
-    <body>
-        <p>
-            {{#eq first second}}Are Equal{{else}}Are not equal{{/eq}}
-        </p>
-    </body>
+	<body>
+		<p>
+			{{#eq first second}}Are Equal{{else}}Are not equal{{/eq}}
+		</p>
+	</body>
 </html>
 ```
 
 Parameters
 * `first`:
-    * type:
-      * `String`
-      * `Number`
-      * `Boolean`
+	* type:
+	  * `String`
+	  * `Number`
+	  * `Boolean`
 	* The first value to compare
 * `second`:
-    * type:
-      * `String`
-      * `Number`
-      * `Boolean`
+	* type:
+	  * `String`
+	  * `Number`
+	  * `Boolean`
 	* The first value to compare
 
 **Values ✍🏻**
 ```js
 {
-    first: 100,
-    second: 100
+	first: 100,
+	second: 100
 }
 ```
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <p>Are Equal</p>
-    </body>
+	<body>
+		<p>Are Equal</p>
+	</body>
 </html>
 ```
 
@@ -295,16 +295,16 @@ Parameters
 **Values ✍🏻**
 ```js
 {
-    first: "example",
-    second: 100
+	first: "example",
+	second: 100
 }
 ```
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <p>Are Not Equal</p>
-    </body>
+	<body>
+		<p>Are Not Equal</p>
+	</body>
 </html>
 ```
 
@@ -319,41 +319,41 @@ Return template inside of the block if the condition is `true`
 **Template 👀**
 ```html
 <html>
-    <body>
-        <p>
-            {{#ne first second}}Are Not Equal{{else}}Are equal{{/ne}}
-        </p>
-    </body>
+	<body>
+		<p>
+			{{#ne first second}}Are Not Equal{{else}}Are equal{{/ne}}
+		</p>
+	</body>
 </html>
 ```
 
 Parameters
 * `first`:
-    * type:
-      * `String`
-      * `Number`
-      * `Boolean`
+	* type:
+	  * `String`
+	  * `Number`
+	  * `Boolean`
 	* The first value to compare
 * `second`:
-    * type:
-      * `String`
-      * `Number`
-      * `Boolean`
+	* type:
+	  * `String`
+	  * `Number`
+	  * `Boolean`
 	* The first value to compare
 
 **Values ✍🏻**
 ```js
 {
-    first: "example",
-    second: 100
+	first: "example",
+	second: 100
 }
 ```
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <p>Are Not Equal</p>
-    </body>
+	<body>
+		<p>Are Not Equal</p>
+	</body>
 </html>
 ```
 
@@ -362,16 +362,16 @@ Parameters
 **Values ✍🏻**
 ```js
 {
-    first: 100,
-    second: 100
+	first: 100,
+	second: 100
 }
 ```
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <p>Are Equal</p>
-    </body>
+	<body>
+		<p>Are Equal</p>
+	</body>
 </html>
 ```
 
@@ -392,18 +392,18 @@ Parameters
 	* type: `String`
 	* The text to be analyzed and replaced
 * `search`
-    * type: `String`
-    * The text to search
+	* type: `String`
+	* The text to search
 * `replace`
-    * type: `String`
-    * The text to replace in text
+	* type: `String`
+	* The text to replace in text
 
 **Values ✍🏻**
 ```js
 {
-    text: "This is an example",
-    search: "an example",
-    replace: "a test"
+	text: "This is an example",
+	search: "an example",
+	replace: "a test"
 }
 ```
 **Result example 🤩**
@@ -413,37 +413,37 @@ Parameters
 
 *****************************************************
 ### <a name="or"></a> ➡️ or
-Checks if any of arguments are `truthy` 
+Checks if any of arguments are `truthy`
 
 Return template inside of the block if the condition is `true`
 
 **Template 👀**
 ```html
 <html>
-    <body>
-        <p>
-            {{#or arg1 arg2 arg3}}Any of arguments are truthy{{else}}All of arguments are falsy{{/or}}
-        </p>
-    </body>
+	<body>
+		<p>
+			{{#or arg1 arg2 arg3}}Any of arguments are truthy{{else}}All of arguments are falsy{{/or}}
+		</p>
+	</body>
 </html>
 ```
 
 Parameters
 * `...args`:
-    * type:
-      * `String`
-      * `Number`
-      * `Object`
-      * `Array`
-      * `Boolean`
+	* type:
+	  * `String`
+	  * `Number`
+	  * `Object`
+	  * `Array`
+	  * `Boolean`
 	* The values to analyze
 
 **Values ✍🏻**
 ```js
 {
-    arg1: true,
-    arg2: false,
-    arg3: 0
+	arg1: true,
+	arg2: false,
+	arg3: 0
 }
 ```
 **Result example 🤩**
@@ -456,17 +456,17 @@ Parameters
 **Values ✍🏻**
 ```js
 {
-    arg1: "",
-    arg2: false,
-    arg3: 0
+	arg1: "",
+	arg2: false,
+	arg3: 0
 }
 ```
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <p>All of arguments are falsy</p>
-    </body>
+	<body>
+		<p>All of arguments are falsy</p>
+	</body>
 </html>
 ```
 
@@ -474,37 +474,37 @@ Parameters
 
 ***********************************************************
 ### <a name="and"></a> ➡️ and
-Checks if all of arguments are `truthy` 
+Checks if all of arguments are `truthy`
 
 Return template inside of the block if the condition is `true`
 
 **Template 👀**
 ```html
 <html>
-    <body>
-        <p>
-            {{#and arg1 arg2 arg3}}All of arguments are truthy{{else}}Any of arguments are falsy{{/and}}
-        </p>
-    </body>
+	<body>
+		<p>
+			{{#and arg1 arg2 arg3}}All of arguments are truthy{{else}}Any of arguments are falsy{{/and}}
+		</p>
+	</body>
 </html>
 ```
 
 Parameters
 * `...args`:
-    * type:
-      * `String`
-      * `Number`
-      * `Object`
-      * `Array`
-      * `Boolean`
+	* type:
+	  * `String`
+	  * `Number`
+	  * `Object`
+	  * `Array`
+	  * `Boolean`
 	* The values to analyze
 
 **Values ✍🏻**
 ```js
 {
-    arg1: true,
-    arg2: "test",
-    arg3: 10
+	arg1: true,
+	arg2: "test",
+	arg3: 10
 }
 ```
 **Result example 🤩**
@@ -517,17 +517,17 @@ Parameters
 **Values ✍🏻**
 ```js
 {
-    arg1: true,
-    arg2: false,
-    arg3: 10
+	arg1: true,
+	arg2: false,
+	arg3: 10
 }
 ```
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <p>Any of arguments are falsy</p>
-    </body>
+	<body>
+		<p>Any of arguments are falsy</p>
+	</body>
 </html>
 ```
 
@@ -543,38 +543,38 @@ Return template inside of the block if the condition is `true`
 **Template 👀**
 ```html
 <html>
-    <body>
-        <p>
-            {{#indexof needle container}}
-                The value is inside of container
-                {{else}}The value is not inside of container
-            {{/indexof}}
-        </p>
-    </body>
+	<body>
+		<p>
+			{{#indexof needle container}}
+				The value is inside of container
+				{{else}}The value is not inside of container
+			{{/indexof}}
+		</p>
+	</body>
 </html>
 ```
 
 Parameters
 * `needle`:
-    * type:
-      * `String`
-      * `Number`
-      * `Boolean`
+	* type:
+	  * `String`
+	  * `Number`
+	  * `Boolean`
 	* The values to search
 * `container`:
-    * type:
-      * `String`
-      * `Number`
-      * `Object`
-      * `Array`
-      * `Boolean`
-    * The array or object
+	* type:
+	  * `String`
+	  * `Number`
+	  * `Object`
+	  * `Array`
+	  * `Boolean`
+	* The array or object
 
 **Values ✍🏻**
 ```js
 {
-    needle: true,
-    container: [1,2,true]
+	needle: true,
+	container: [1,2,true]
 }
 ```
 **Result example 🤩**
@@ -587,19 +587,19 @@ Parameters
 **Values ✍🏻**
 ```js
 {
-    needle: "lastname",
-    container: {
-        name: "Rocky",
-        birthdate: "03/08/2001"
-    }
+	needle: "lastname",
+	container: {
+		name: "Rocky",
+		birthdate: "03/08/2001"
+	}
 }
 ```
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <p>The value is not inside of container</p>
-    </body>
+	<body>
+		<p>The value is not inside of container</p>
+	</body>
 </html>
 ```
 
@@ -617,18 +617,18 @@ Return template with the values `concatenated` 😲
 
 Parameters
 * `...args`:
-    * type:
-      * `String`
-      * `Number`
-      * `Boolean`
+	* type:
+	  * `String`
+	  * `Number`
+	  * `Boolean`
 	* The values to concat
 
 **Values ✍🏻**
 ```js
 {
-    value1: "Hello",
-    value2: true,
-    value3: 123
+	value1: "Hello",
+	value2: true,
+	value3: 123
 }
 ```
 **Result example 🤩**
@@ -639,7 +639,7 @@ Parameters
 ***********************************************************
 
 ### <a name="stripHost"></a> ➡️ stripHost
-`Strips` a host from a URL 
+`Strips` a host from a URL
 
 **Template 👀**
 ```html
@@ -649,12 +649,12 @@ Parameters
 Parameters
 * `url`:
 	* type: `String`
-	* The url to 
+	* The url to
 
 **Values ✍🏻**
 ```js
 {
-    value1: "http://google.com.ar/search"
+	value1: "http://google.com.ar/search"
 }
 ```
 **Result example 🤩**
@@ -680,7 +680,7 @@ Parameters
 **Values ✍🏻**
 ```js
 {
-    text: "ThE example to cAMELIZE"
+	text: "ThE example to cAMELIZE"
 }
 ```
 **Result example 🤩**
@@ -706,7 +706,7 @@ Parameters
 **Values ✍🏻**
 ```js
 {
-    text: "ThE-example-to-saNITIZE"
+	text: "ThE-example-to-saNITIZE"
 }
 ```
 **Result example 🤩**
@@ -723,14 +723,14 @@ Return template inside of the block if the result is `correct`
 **Template 👀**
 ```html
 <html>
-    <body>
-        <p>
-            {{#modulus index mod result}}
-                The result is 0
-                {{else}}The result is incorrect
-            {{/modulus}}
-        </p>
-    </body>
+	<body>
+		<p>
+			{{#modulus index mod result}}
+				The result is 0
+				{{else}}The result is incorrect
+			{{/modulus}}
+		</p>
+	</body>
 </html>
 ```
 
@@ -739,16 +739,16 @@ Parameters
 	* type: `Number`
 	* The value to make the operation
 * `mod`:
-    * type: `Number`
-    * The modulus value
+	* type: `Number`
+	* The modulus value
 * `result`:
-    * type: `Number`
-    * The result
+	* type: `Number`
+	* The result
 
 **Values ✍🏻**
 ```js
 {
-    index: 20,
+	index: 20,
 	mod: 2,
 	result: 0
 }
@@ -771,9 +771,9 @@ Parameters
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <p>The result is incorrect</p>
-    </body>
+	<body>
+		<p>The result is incorrect</p>
+	</body>
 </html>
 ```
 
@@ -784,7 +784,7 @@ Parameters
 ### <a name="set"></a> ➡️ set
 `Set` the value of an object's property 😲
 
-Return an empty string 
+Return an empty string
 
 **Template 👀**
 ```html
@@ -796,11 +796,11 @@ Parameters
 	* type: `Object`
 	* The object
 * `path`
-    * type: `String`
-    * The property's path
+	* type: `String`
+	* The property's path
 * `value`
-    * type: `String`
-    * The value to set
+	* type: `String`
+	* The value to set
 
 **Values ✍🏻**
 ```js
@@ -825,7 +825,7 @@ Parameters
 ### <a name="get"></a> ➡️ get
 `Get` the value of an object's property 😲
 
-If the property not exists return an empty string 
+If the property not exists return an empty string
 
 **Template 👀**
 ```html
@@ -837,8 +837,8 @@ Parameters
 	* type: `Object`
 	* The object
 * `path`
-    * type: `String`
-    * The property's path
+	* type: `String`
+	* The property's path
 
 **Values ✍🏻**
 ```js
@@ -865,33 +865,33 @@ Parse `json` to object 😲
 **Template 👀**
 ```html
 <html>
-    <body>
-        {{#json example}}
-            <h1>{{name}}</h1>
-            <h2>{{lastName}}</h2>
-        {{/json}}
-    </body>
+	<body>
+		{{#json example}}
+			<h1>{{name}}</h1>
+			<h2>{{lastName}}</h2>
+		{{/json}}
+	</body>
 </html>
 ```
 
 Parameters
 * `objectJson`:
 	* type: `String`
-	* The object in json  
+	* The object in json
 
 **Values ✍🏻**
 ```js
 {
-	example: "{'name':'Rocky','lastname':'Balboa'}" 
+	example: "{'name':'Rocky','lastname':'Balboa'}"
 }
 ```
 **Result example 🤩**
 ```html
 <html>
-    <body>
-            <h1>Rocky</h1>
-            <h2>Balboa</h2>
-    </body>
+	<body>
+			<h1>Rocky</h1>
+			<h2>Balboa</h2>
+	</body>
 </html>
 ```
 
@@ -904,36 +904,36 @@ Generate `attributes` with an object as param 😲
 **Template 👀**
 ```html
 <html>
-    <body>
-        <h1 {{attributes example}}>Hello!</h1>
-    </body>
+	<body>
+		<h1 {{attributes example}}>Hello!</h1>
+	</body>
 </html>
 ```
 
 Parameters
 * `object`:
 	* type: `Object`
-	* The object to generate attributes  
+	* The object to generate attributes
 
 **Values ✍🏻**
 ```js
 {
 	example: {
-        class: "red",
-        other: "otherValue"
-    }
+		class: "red",
+		other: "otherValue"
+	}
 }
 ```
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <h1 class="red"other="otherValue">Hello!</h1>
-    </body>
+	<body>
+		<h1 class="red"other="otherValue">Hello!</h1>
+	</body>
 </html>
 ```
 ***********************************************************
-### <a name="getToggle"></a> ➡️ getToggle 
+### <a name="getToggle"></a> ➡️ getToggle
 Return an object's property or placeholder 😲
 
 **Template 👀**
@@ -946,11 +946,11 @@ Parameters
 	* type: `Object`
 	* The object
 * `key`:
-    * type: `Number`
-    * The object's property to get
+	* type: `Number`
+	* The object's property to get
 * `placeholder`:
-    * type: `String`
-    * The string to show if the key don't exists
+	* type: `String`
+	* The string to show if the key don't exists
 
 **Values ✍🏻**
 ```js
@@ -967,7 +967,7 @@ Parameters
 <html><body><p>Hello!</p></body></html>
 ```
 
-⚠️ If the key don't exists in the object 
+⚠️ If the key don't exists in the object
 
 **Values ✍🏻**
 ```js
@@ -1004,20 +1004,20 @@ Parameters
 ```js
 {
 	object: {
-        name: "Fizzmod"
-    }
+		name: "Fizzmod"
+	}
 }
 ```
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <pre>
-            {
-                "name":"Fizzmod"
-            }
-        </pre>
-    </body>
+	<body>
+		<pre>
+			{
+				"name":"Fizzmod"
+			}
+		</pre>
+	</body>
 </html>
 
 ```
@@ -1035,29 +1035,29 @@ Convert object or value to html as `text preformatted` 😲
 
 Parameters
 * `value`:
-    * type:
-      * `String`
-      * `Number`
-      * `Object`
-      * `Array`
-      * `Boolean`
+	* type:
+	  * `String`
+	  * `Number`
+	  * `Object`
+	  * `Array`
+	  * `Boolean`
 	* The object or value to parse
 
 **Values ✍🏻**
 ```js
 {
 	object: {
-        name: "Fizzmod"
-    }
+		name: "Fizzmod"
+	}
 }
 ```
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <style>body { position: static!important;}</style>
-        <pre>[object] { name: \'Fizzmod\' }</pre>
-    </body>
+	<body>
+		<style>body { position: static!important;}</style>
+		<pre>[object] { name: \'Fizzmod\' }</pre>
+	</body>
 </html>
 
 ```
@@ -1079,18 +1079,18 @@ Parameters
 	* type: `Number`
 	* The number to analyze
 * `even`:
-    * type:
-      * `String`
-      * `Number`
-      * `Boolean`
-    * The value to return when index is even
+	* type:
+	  * `String`
+	  * `Number`
+	  * `Boolean`
+	* The value to return when index is even
 * `odd`:
-    * type:
-      * `String`
-      * `Number`
-      * `Boolean`
-    * The value to return when index is odd
-  
+	* type:
+	  * `String`
+	  * `Number`
+	  * `Boolean`
+	* The value to return when index is odd
+
 **Values ✍🏻**
 ```js
 {
@@ -1125,13 +1125,13 @@ Make a `loop` and returns the template inside of the block and a `value incremen
 **Template 👀**
 ```html
 <html>
-    <body>
-        <p>
-            {{#for from to}}
-                <li>Index: {{this}} </li>
-            {{/from}}
-        </p>
-    </body>
+	<body>
+		<p>
+			{{#for from to}}
+				<li>Index: {{this}} </li>
+			{{/from}}
+		</p>
+	</body>
 </html>
 ```
 
@@ -1140,25 +1140,25 @@ Parameters
 	* type: `Number`
 	* The value to start the iteration
 * `to`:
-    * type: `Number`
+	* type: `Number`
 	* The value to finish the iteration
-  
+
 **Values ✍🏻**
 ```js
 {
-    from: 0,
+	from: 0,
 	to: 2,
 }
 ```
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <p>
-            <li>Index: 0 </li>
-            <li>Index: 1 </li>
-        </p>
-    </body>
+	<body>
+		<p>
+			<li>Index: 0 </li>
+			<li>Index: 1 </li>
+		</p>
+	</body>
 </html>
 ```
 ***********************************************************
@@ -1176,7 +1176,7 @@ Parameters
 * `...args`:
 	* type: `Number`
 	* The numbers to sum
-  
+
 **Values ✍🏻**
 ```js
 {
@@ -1205,12 +1205,12 @@ Parameters
 	* type: `Number`
 	* The weight to format
 * `decimal`
-    * type: `String`
-    * The decimal separator  ==> "." or "," ...
+	* type: `String`
+	* The decimal separator  ==> "." or "," ...
 * `length`
-    * type: `Number`
-    * The length of the decimals
-  
+	* type: `Number`
+	* The length of the decimals
+
 **Values ✍🏻**
 ```js
 {
@@ -1235,14 +1235,14 @@ Return template inside of the block if the condition is `true`
 **Template 👀**
 ```html
 <html>
-    <body>
-        <p>
-            {{#gte first second}}
-                The first is greater than or equal the second one 
-                {{else}}The first is not greater than or equal the second one
-            {{/gte}}
-        </p>
-    </body>
+	<body>
+		<p>
+			{{#gte first second}}
+				The first is greater than or equal the second one
+				{{else}}The first is not greater than or equal the second one
+			{{/gte}}
+		</p>
+	</body>
 </html>
 ```
 
@@ -1251,13 +1251,13 @@ Parameters
 	* type: `Number`
 	* The first number to check
 * `second`:
-    * type: `Number`
-    * The second number to check
+	* type: `Number`
+	* The second number to check
 
 **Values ✍🏻**
 ```js
 {
-    first: 2,
+	first: 2,
 	second: 2
 }
 ```
@@ -1271,16 +1271,16 @@ Parameters
 **Values ✍🏻**
 ```js
 {
-    first: 2,
+	first: 2,
 	second: 20
 }
 ```
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <p>The first is not greater than or equal the second one </p>
-    </body>
+	<body>
+		<p>The first is not greater than or equal the second one </p>
+	</body>
 </html>
 ```
 
@@ -1297,14 +1297,14 @@ Return template inside of the block if the condition is `true`
 **Template 👀**
 ```html
 <html>
-    <body>
-        <p>
-            {{#gt first second}}
-                The first is greater than the second one 
-                {{else}}The first is not greater than the second one 
-            {{/gt}}
-        </p>
-    </body>
+	<body>
+		<p>
+			{{#gt first second}}
+				The first is greater than the second one
+				{{else}}The first is not greater than the second one
+			{{/gt}}
+		</p>
+	</body>
 </html>
 ```
 
@@ -1313,13 +1313,13 @@ Parameters
 	* type: `Number`
 	* The first number to check
 * `second`:
-    * type: `Number`
-    * The second number to check
+	* type: `Number`
+	* The second number to check
 
 **Values ✍🏻**
 ```js
 {
-    first: 20,
+	first: 20,
 	second: 2
 }
 ```
@@ -1333,16 +1333,16 @@ Parameters
 **Values ✍🏻**
 ```js
 {
-    first: 2,
+	first: 2,
 	second: 20
 }
 ```
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <p>The first is not greater than the second one </p>
-    </body>
+	<body>
+		<p>The first is not greater than the second one </p>
+	</body>
 </html>
 ```
 
@@ -1359,14 +1359,14 @@ Return template inside of the block if the condition is `true`
 **Template 👀**
 ```html
 <html>
-    <body>
-        <p>
-            {{#lt first second}}
-                The first is lower than the second one 
-                {{else}}The first is not lower than the second one 
-            {{/lt}}
-        </p>
-    </body>
+	<body>
+		<p>
+			{{#lt first second}}
+				The first is lower than the second one
+				{{else}}The first is not lower than the second one
+			{{/lt}}
+		</p>
+	</body>
 </html>
 ```
 
@@ -1375,13 +1375,13 @@ Parameters
 	* type: `Number`
 	* The first number to check
 * `second`:
-    * type: `Number`
-    * The second number to check
+	* type: `Number`
+	* The second number to check
 
 **Values ✍🏻**
 ```js
 {
-    first: 2,
+	first: 2,
 	second: 20
 }
 ```
@@ -1395,16 +1395,16 @@ Parameters
 **Values ✍🏻**
 ```js
 {
-    first: 10,
+	first: 10,
 	second: 2
 }
 ```
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <p>The first is not lower than the second one </p>
-    </body>
+	<body>
+		<p>The first is not lower than the second one </p>
+	</body>
 </html>
 ```
 
@@ -1421,14 +1421,14 @@ Return template inside of the block if the condition is `true`
 **Template 👀**
 ```html
 <html>
-    <body>
-        <p>
-            {{#lte first second}}
-                The first is lower than or equal the second one 
-                {{else}}The first is not lower than or equal the second one
-            {{/lte}}
-        </p>
-    </body>
+	<body>
+		<p>
+			{{#lte first second}}
+				The first is lower than or equal the second one
+				{{else}}The first is not lower than or equal the second one
+			{{/lte}}
+		</p>
+	</body>
 </html>
 ```
 
@@ -1437,13 +1437,13 @@ Parameters
 	* type: `Number`
 	* The first number to check
 * `second`:
-    * type: `Number`
-    * The second number to check
+	* type: `Number`
+	* The second number to check
 
 **Values ✍🏻**
 ```js
 {
-    first: 2,
+	first: 2,
 	second: 2
 }
 ```
@@ -1457,16 +1457,16 @@ Parameters
 **Values ✍🏻**
 ```js
 {
-    first: 20,
+	first: 20,
 	second: 2
 }
 ```
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <p>The first is not lower than or equal the second one </p>
-    </body>
+	<body>
+		<p>The first is not lower than or equal the second one </p>
+	</body>
 </html>
 ```
 
@@ -1483,31 +1483,31 @@ Return template inside of the block if the condition is `true`
 **Template 👀**
 ```html
 <html>
-    <body>
-        <p>
-            {{#notIn age illegalAges}}
-                Im can drink beer
-                {{else}}I mustn't drink beer 
-            {{/notIn}}
-        </p>
-    </body>
+	<body>
+		<p>
+			{{#notIn age illegalAges}}
+				Im can drink beer
+				{{else}}I mustn't drink beer
+			{{/notIn}}
+		</p>
+	</body>
 </html>
 ```
 
 Parameters
 * `value`:
-    * type:
-      * `String`
-      * `Number`
+	* type:
+	  * `String`
+	  * `Number`
 	* The value to search
 * `values`:
-    * type: `String`
-    * The string to search the value
+	* type: `String`
+	* The string to search the value
 
 **Values ✍🏻**
 ```js
 {
-    age: 19,
+	age: 19,
 	illegalAges: "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17"
 }
 ```
@@ -1521,16 +1521,16 @@ Parameters
 **Values ✍🏻**
 ```js
 {
-    age: 14,
+	age: 14,
 	second: "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17"
 }
 ```
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <p>I mustn't drink beer</p>
-    </body>
+	<body>
+		<p>I mustn't drink beer</p>
+	</body>
 </html>
 ```
 
@@ -1547,31 +1547,31 @@ Return template inside of the block if the condition is `true`
 **Template 👀**
 ```html
 <html>
-    <body>
-        <p>
-            {{#in age illegalAges}}
-                I mustn't drink beer
-                {{else}}Im can drink beer
-            {{/in}}
-        </p>
-    </body>
+	<body>
+		<p>
+			{{#in age illegalAges}}
+				I mustn't drink beer
+				{{else}}Im can drink beer
+			{{/in}}
+		</p>
+	</body>
 </html>
 ```
 
 Parameters
 * `value`:
-    * type:
-      * `String`
-      * `Number`
+	* type:
+	  * `String`
+	  * `Number`
 	* The value to search
 * `values`:
-    * type: `String`
-    * The string to search the value
+	* type: `String`
+	* The string to search the value
 
 **Values ✍🏻**
 ```js
 {
-    age: 14,
+	age: 14,
 	illegalAges: "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17"
 }
 ```
@@ -1586,7 +1586,7 @@ Parameters
 **Values ✍🏻**
 ```js
 {
-    age: 20,
+	age: 20,
 	second: "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17"
 }
 ```
@@ -1612,18 +1612,18 @@ If the condition is true returns `true`, otherwise `false`
 
 Parameters
 * `...args`:
-    * type:
-      * `String`
-      * `Number`
-      * `Object`
-      * `Array`
-      * `Boolean`
+	* type:
+	  * `String`
+	  * `Number`
+	  * `Object`
+	  * `Array`
+	  * `Boolean`
 	* The values to check
 
 **Values ✍🏻**
 ```js
 {
-    arg1: 0,
+	arg1: 0,
 	arg2: false
 }
 ```
@@ -1647,18 +1647,18 @@ If the condition is true returns `true`, otherwise `false`
 
 Parameters
 * `...args`:
-    * type:
-      * `String`
-      * `Number`
-      * `Object`
-      * `Array`
-      * `Boolean`
+	* type:
+	  * `String`
+	  * `Number`
+	  * `Object`
+	  * `Array`
+	  * `Boolean`
 	* The values to check
 
 **Values ✍🏻**
 ```js
 {
-    arg1: "Hello!",
+	arg1: "Hello!",
 	arg2: true
 }
 ```
@@ -1676,41 +1676,41 @@ Return the `length` of a value [array, object, string] 😲
 **Template 👀**
 ```html
 <html>
-    <body>
-        <p>{{count string}}</p>
-        <p>{{count object}}</p>
-        <p>{{count array}}</p>
-    </body>
+	<body>
+		<p>{{count string}}</p>
+		<p>{{count object}}</p>
+		<p>{{count array}}</p>
+	</body>
 </html>
 ```
 
 Parameters
 * `value`:
-    * type:
-      * `String`
-      * `Object`
-      * `Array`
+	* type:
+	  * `String`
+	  * `Object`
+	  * `Array`
 	* The values to check
 
 **Values ✍🏻**
 ```js
 {
-    string: "Hello",
-    object: {
-        name: "Rocky",
-        lastname: "Balboa"
-    },
-    array:[1,2,3]
+	string: "Hello",
+	object: {
+		name: "Rocky",
+		lastname: "Balboa"
+	},
+	array:[1,2,3]
 }
 ```
 **Result example 🤩**
 ```html
 <html>
-    <body>
-        <p>5</p>
-        <p>2</p>
-        <p>3</p>
-    </body>
+	<body>
+		<p>5</p>
+		<p>2</p>
+		<p>3</p>
+	</body>
 </html>
 ```
 
@@ -1728,19 +1728,19 @@ If the condition is true returns `true`, otherwise `false`
 
 Parameters
 * `text`:
-    * type:
-      * `String`
+	* type:
+	  * `String`
 	* The text to search the substring
 * `substring`
-    * type:
-      * `String`
-    * The substring
+	* type:
+	  * `String`
+	* The substring
 
 **Values ✍🏻**
 ```js
 {
-    text: "We are Fizzmod!!!",
-    substring: "We are"
+	text: "We are Fizzmod!!!",
+	substring: "We are"
 }
 ```
 **Result example 🤩**
@@ -1752,14 +1752,14 @@ Parameters
 
 ```html
 <html>
-    <body>
-        <p>
-            {{#hasSubStr text subStr}}
-                The text contains the substring
-                {{else}} The text don't contains the substring
-            {{/hasSubStr}}
-        </p>
-    </body>
+	<body>
+		<p>
+			{{#hasSubStr text subStr}}
+				The text contains the substring
+				{{else}} The text don't contains the substring
+			{{/hasSubStr}}
+		</p>
+	</body>
 </html>
 ```
 **Result example 🤩**
@@ -1772,8 +1772,8 @@ Parameters
 **Values ✍🏻**
 ```js
 {
-    text: "We are Fizzmod!!!",
-    substring: "Other"
+	text: "We are Fizzmod!!!",
+	substring: "Other"
 }
 ```
 **Result example 🤩**
@@ -1793,31 +1793,31 @@ Format `price` 😲
 **Template 👀**
 ```html
 <html>
-    <body>
-        <h1>{{customFormatPrice number thousands decimals length currency}}</h1>
-    </body>
+	<body>
+		<h1>{{customFormatPrice number thousands decimals length currency}}</h1>
+	</body>
 </html>
 ```
 
 Parameters
 * `number`:
-    * type: `Number`
+	* type: `Number`
 	* The number to format to price
 * `thousands`
-    * type: `String`
-    * The thousands separator => "." or "," ...
+	* type: `String`
+	* The thousands separator => "." or "," ...
 * `decimals`
-    * type:
-      * `String`
-    * The decimal separator => "." or "," ...
+	* type:
+	  * `String`
+	* The decimal separator => "." or "," ...
 * `length`
-    * type:
-      * `Number`
-    * The number of decimals displayed
+	* type:
+	  * `Number`
+	* The number of decimals displayed
 * `currency`
-    * type:
-      * `String`
-    * The price's currency 
+	* type:
+	  * `String`
+	* The price's currency
 
 **Values ✍🏻**
 ```js
@@ -1847,19 +1847,19 @@ Parameters
 
 Parameters
 * `array`:
-    * type: `Array`
+	* type: `Array`
 	* The array to loop
 * `thousands`
-    * type:
-      * `Boolean`
-      * `String`
-    * The key from which to extract numbers to sum, if none, it assumes an array of numbers
+	* type:
+	  * `Boolean`
+	  * `String`
+	* The key from which to extract numbers to sum, if none, it assumes an array of numbers
 
 **Values ✍🏻**
 ```js
 {
 	array: [1,2,3],
-    key: false
+	key: false
 }
 ```
 **Result example 🤩**
@@ -1872,12 +1872,12 @@ Parameters
 **Values ✍🏻**
 ```js
 {
-    array: [
-    	{ number: 1 },
-    	{ number: 2 },
-    	{ number: 3 }
-    ],
-    key: 'number'
+	array: [
+		{ number: 1 },
+		{ number: 2 },
+		{ number: 3 }
+	],
+	key: 'number'
 }
 ```
 **Result example 🤩**
@@ -1900,7 +1900,7 @@ If the condition is true returns `true`, otherwise `false`
 
 Parameters
 * `number`:
-    * type:`Number`
+	* type:`Number`
 	* The number to check
 
 **Values ✍🏻**
@@ -1929,7 +1929,7 @@ If the condition is true returns `true`, otherwise `false`
 
 Parameters
 * `number`:
-    * type: `Number`
+	* type: `Number`
 	* The number to increment
 
 **Values ✍🏻**
@@ -1956,24 +1956,24 @@ Format `date` 😲
 
 Parameters
 * `date`:
-    * type:
-      * `String`
-      * `Date`
+	* type:
+	  * `String`
+	  * `Date`
 	* The date to format
 * `format`
-    * type: `String`
-    * The format =>
-        * Preset: `"DATE_MED"`
-        * Tokens: `"yyyy LLL dd"`,
+	* type: `String`
+	* The format =>
+		* Preset: `"DATE_MED"`
+		* Tokens: `"yyyy LLL dd"`,
 * `zone`
-    * type: `String`
-    * The zone to format the date
+	* type: `String`
+	* The zone to format the date
 
 **Values ✍🏻**
 ```js
 {
 	date: '2014-08-06T13:07:04.054',
-    format: "DATETIME_FULL_WITH_SECONDS"
+	format: "DATETIME_FULL_WITH_SECONDS"
 }
 ```
 **Result example 🤩**
@@ -2111,17 +2111,17 @@ Example: `2014-08-06T13:07:04.054`
 
 Parameters
 * `text`:
-    * type: `String`
+	* type: `String`
 	* The text to analyze
 * `search`
-    * type: `String`
-    * The string to search in the text
+	* type: `String`
+	* The string to search in the text
 * `flags`
-    * type: `String`
-    * The flag for the regex
+	* type: `String`
+	* The flag for the regex
 * `replace`
-    * type: `String`
-    * The string to replace in the text
+	* type: `String`
+	* The string to replace in the text
 
 **Values ✍🏻**
 ```js
