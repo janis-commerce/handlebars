@@ -7,7 +7,7 @@ const {
 	Handlebars
 } = require('../lib');
 
-describe('Handlebars', () => {
+describe('Handlebars Helpers', () => {
 
 	context('When must render using regexReplace helper', () => {
 
