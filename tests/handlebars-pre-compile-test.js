@@ -11,6 +11,40 @@ const {
 
 describe('Handlebars PreCompile', () => {
 
+	context('When the template values is not valid', () => {
+
+		const templateValues = [
+			{
+				type: 'string',
+				value: 'stringExample'
+			},
+			{
+				type: 'array',
+				value: [{}]
+			},
+			{
+				type: 'number',
+				value: 123
+			}
+		];
+
+		sandbox.spy(QRCode, 'toDataURL');
+
+		sandbox.spy(bwipjs, 'toBuffer');
+
+		templateValues.forEach(({ type, value }) => {
+			it(`Should return an error when pass a ${type}`, () => {
+
+				assert.throws(() => Handlebars.preCompile(value), { name: 'Error', message: 'Template Values must be an object' });
+
+				sandbox.assert.notCalled(QRCode.toDataURL);
+
+				sandbox.assert.notCalled(bwipjs.toBuffer);
+			});
+		});
+	});
+
+
 	context('When the document must render QR Code', () => {
 
 		beforeEach(() => {
