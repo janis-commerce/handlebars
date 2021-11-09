@@ -33,6 +33,8 @@ const values = {
 templateCompiled(values)
 ```
 
+## 📢 [Pre Compile](https://github.com/janis-commerce/handlebars/blob/master/docs/preCompile.md) the template values
+
 ## 📢 Helpers
 
 * ### *List of helpers*
@@ -79,4 +81,3 @@ templateCompiled(values)
   * [base1Index](https://github.com/janis-commerce/handlebars/blob/master/docs/helpers.md##base1Index)
   * [formatDate](https://github.com/janis-commerce/handlebars/blob/master/docs/helpers.md##formatDate)
   * [regexReplace](https://github.com/janis-commerce/handlebars/blob/master/docs/helpers.md##regexReplace)
-  * [preCompile](https://github.com/janis-commerce/handlebars/blob/master/docs/preCompile.md)
