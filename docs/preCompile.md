@@ -1,7 +1,7 @@
 
 ## **Pre compile** 👀
 
-With this function we can `pre-compile` the templates values replacing `qr codes` and `barcode128` for `images` 
+With this function we can `pre-compile` the templates values replacing `qr codes` and `barcode128` by `images` 
 
 * ⚠ For replace qr codes the property needs to start with `qr_` 
 * ⚠ For replace barcode128 the property needs to start with `barcode128_` 
