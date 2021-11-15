@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.1.0] - 2021-11-15
+### Added
+- New functionality that supports the handling of `QR` and `Barcode128`. [See More](https://github.com/janis-commerce/handlebars/blob/master/docs/preCompile.md)
+
 ## [1.0.1] - 2021-09-24
 ### Fixed
 - Fix helper `formatDate`
