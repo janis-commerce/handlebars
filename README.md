@@ -33,6 +33,8 @@ const values = {
 templateCompiled(values)
 ```
 
+## 📢 [Pre Compile](https://github.com/janis-commerce/handlebars/blob/master/docs/preCompile.md) the template values
+
 ## 📢 Helpers
 
 * ### *List of helpers*
