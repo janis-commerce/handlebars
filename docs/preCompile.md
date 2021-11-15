@@ -12,7 +12,7 @@ const Handlebars = require("@janiscommerce/handlebars")
 
 const templateValues = {
     name: "Example",
-    qr_code: 'https://www.google.com/'
+    qr_code: 'https://www.google.com/',
 	barcode128_ean: '123123'
 }
 
@@ -22,7 +22,7 @@ const templateValuesPreCompiled = await Handlebars.preCompile(templateValues)
 ```js
 {
     name: "Example",
-    qr_code: 'data:image/png;base64;ivBoQR01W'
+    qr_code: 'data:image/png;base64;ivBoQR01W',
 	barcode128_ean: 'data:image/png;base64,ivBoQR01W'
 }
 ```
