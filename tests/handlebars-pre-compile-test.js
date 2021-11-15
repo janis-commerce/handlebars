@@ -25,6 +25,10 @@ describe('Handlebars PreCompile', () => {
 			{
 				type: 'number',
 				value: 123
+			},
+			{
+				type: 'null',
+				value: null
 			}
 		];
 
@@ -33,6 +37,7 @@ describe('Handlebars PreCompile', () => {
 		sandbox.spy(bwipjs, 'toBuffer');
 
 		templateValues.forEach(({ type, value }) => {
+
 			it(`Should return an error when pass a ${type}`, () => {
 
 				assert.throws(() => Handlebars.preCompile(value), { name: 'Error', message: 'Template Values must be an object' });
@@ -41,6 +46,15 @@ describe('Handlebars PreCompile', () => {
 
 				sandbox.assert.notCalled(bwipjs.toBuffer);
 			});
+		});
+
+		it('Should return an error when pass a empty object', () => {
+
+			assert.throws(() => Handlebars.preCompile({}), { name: 'Error', message: 'Template values must\n be empty object' });
+
+			sandbox.assert.notCalled(QRCode.toDataURL);
+
+			sandbox.assert.notCalled(bwipjs.toBuffer);
 		});
 	});
 
