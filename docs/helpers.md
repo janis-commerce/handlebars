@@ -1932,6 +1932,9 @@ Parameters
 * `zone`
 	* type: `String`
 	* The zone to format the date
+* `timeZone`
+	* type: `String`
+	* The time zone to format the date
 
 **Values ✍🏻**
 ```js
@@ -1945,14 +1948,15 @@ Parameters
 <html><body><h1>2014 M08 6 13:07:04 GMT-3</h1></body></html>
 ```
 
-👉Also, we can pass the `zone`
+👉Also, we can pass the `zone` and `timeZone` if you send `timeZone` you must send zone `first`.
 
 **Values ✍🏻**
 ```js
 {
 	date: '3/8/2001',
 	format: 'DATETIME_FULL',
-	zone: 'en-AU'
+	zone: 'en-AU',
+	timeZone: 'America/New_York'
 }
 ```
 **Result example 🤩**
