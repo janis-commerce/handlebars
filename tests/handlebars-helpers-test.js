@@ -94,6 +94,30 @@ describe('Handlebars Helpers', () => {
 		});
 	});
 
+	context('When must render using formatDate helper with timeZone', () => {
+
+		const template = '<html><body><h1>{{formatDate date format zone timeZone}}</h1></body></html>';
+		const templateCompiled = Handlebars.compile(template, 'strict');
+
+		it('Should return the date formatted in html when passed a format as preset and timeZone', () => {
+
+			const value = {
+				date: '3/8/2001',
+				format: 'DATETIME_FULL',
+				zone: 'en-AU',
+				timeZone: 'America/New_York'
+			};
+
+			const newDateJS = new Date(value.date);
+
+			const dt = DateTime.fromJSDate(newDateJS)
+				.setLocale(value.zone)
+				.setZone(value.timeZone);
+
+			assert.strictEqual(templateCompiled(value), `<html><body><h1>${dt.toLocaleString(DateTime[value.format])}</h1></body></html>`);
+		});
+	});
+
 	context('When must render using base1Index helper', () => {
 
 		const template = '<html><body><h1>{{base1Index value}}</h1></body></html>';
