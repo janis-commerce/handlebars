@@ -1948,7 +1948,7 @@ Parameters
 <html><body><h1>2014 M08 6 13:07:04 GMT-3</h1></body></html>
 ```
 
-👉Also, we can pass the `zone` and `timeZone` if you send `timeZone` you must send zone `first`.
+👉Also, we can pass the `zone` and `timeZone`, if you send `timeZone` you must send `zone` first.
 
 **Values ✍🏻**
 ```js
