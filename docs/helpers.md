@@ -1926,7 +1926,7 @@ Parameters
 	* The date to format
 * `format`
 	* type: `String`
-	* The format of the date ()
+	* The format of the date
 * `zone`
 	* type: `String`
 	* The zone to format the date
