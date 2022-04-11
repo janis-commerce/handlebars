@@ -1,8 +1,8 @@
 'use strict';
 
 const assert = require('assert');
-const { DateTime } = require('luxon');
-
+const zones = require('date-fns/locale');
+const { format: fnsFormat, utcToZonedTime } = require('date-fns-tz');
 const {
 	Handlebars
 } = require('../lib');
@@ -43,33 +43,23 @@ describe('Handlebars Helpers', () => {
 		});
 	});
 
-	context('When must render using formatDate helper without zone', () => {
+	context('When must render using formatDate helper without zone/timeZone', () => {
 
 		const template = '<html><body><h1>{{formatDate date format}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return the date formatted in html when passed a format as token', () => {
+		it('Should return the date formatted in html when passed a format', () => {
 
 			const value = {
 				date: '2021/3/8',
-				format: 'yyyy LLL dd'
+				format: 'PPPPpppp'
 			};
 
-			assert.strictEqual(templateCompiled(value), '<html><body><h1>2021 Mar 08</h1></body></html>');
-		});
+			const newDate = new Date(value.date);
 
-		it('Should return the date formatted in html when passed a format as preset ', () => {
+			const format = () => fnsFormat(newDate, value.format, {});
 
-			const value = {
-				date: '2021-09-14T08:00:00.000Z',
-				format: 'DATETIME_SHORT_WITH_SECONDS'
-			};
-
-			const newDateJS = new Date(value.date);
-
-			const dt = DateTime.fromJSDate(newDateJS);
-
-			assert.strictEqual(templateCompiled(value), `<html><body><h1>${dt.toLocaleString(DateTime[value.format])}</h1></body></html>`);
+			assert.strictEqual(templateCompiled(value), `<html><body><h1>${format()}</h1></body></html>`);
 		});
 	});
 
@@ -78,19 +68,71 @@ describe('Handlebars Helpers', () => {
 		const template = '<html><body><h1>{{formatDate date format zone}}</h1></body></html>';
 		const templateCompiled = Handlebars.compile(template, 'strict');
 
-		it('Should return the date formatted in html when passed a format as preset and zone', () => {
+		it('Should return the date formatted in html when passed format and zone', () => {
 
 			const value = {
 				date: '3/8/2001',
-				format: 'DATETIME_FULL',
-				zone: 'en-AU'
+				format: 'PPPPpppp',
+				zone: 'enAU'
 			};
 
-			const newDateJS = new Date(value.date);
+			const newDate = new Date(value.date);
 
-			const dt = DateTime.fromJSDate(newDateJS).setLocale(value.zone);
+			const format = () => fnsFormat(newDate, value.format, {
+				locale: zones[value.zone]
+			});
 
-			assert.strictEqual(templateCompiled(value), `<html><body><h1>${dt.toLocaleString(DateTime[value.format])}</h1></body></html>`);
+			assert.strictEqual(templateCompiled(value), `<html><body><h1>${format()}</h1></body></html>`);
+		});
+	});
+
+	context('When must render using formatDate helper with timeZone', () => {
+
+		const template = '<html><body><h1>{{formatDate date format timeZone}}</h1></body></html>';
+		const templateCompiled = Handlebars.compile(template, 'strict');
+
+		it('Should return the date formatted in html when passed format and timeZone', () => {
+
+			const value = {
+				date: '3/8/2001',
+				format: 'PPPppp',
+				timeZone: 'America/New_York'
+			};
+
+			let newDate = new Date(value.date);
+			newDate = utcToZonedTime(newDate, value.timeZone);
+
+			const format = () => fnsFormat(newDate, value.format, {
+				timeZone: value.timeZone
+			});
+
+			assert.strictEqual(templateCompiled(value), `<html><body><h1>${format()}</h1></body></html>`);
+		});
+	});
+
+	context('When must render using formatDate helper with zone and timeZone', () => {
+
+		const template = '<html><body><h1>{{formatDate date format zone timeZone}}</h1></body></html>';
+		const templateCompiled = Handlebars.compile(template, 'strict');
+
+		it('Should return the date formatted in html when passed format, zone and timeZone', () => {
+
+			const value = {
+				date: '3/8/2001',
+				format: 'PPPPpppp',
+				zone: 'enAU',
+				timeZone: 'America/New_York'
+			};
+
+			let newDate = new Date(value.date);
+			newDate = utcToZonedTime(newDate, value.timeZone);
+
+			const format = () => fnsFormat(newDate, value.format, {
+				locale: zones[value.zone],
+				timeZone: value.timeZone
+			});
+
+			assert.strictEqual(templateCompiled(value), `<html><body><h1>${format()}</h1></body></html>`);
 		});
 	});
 
