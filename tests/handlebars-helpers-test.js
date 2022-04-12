@@ -1374,34 +1374,6 @@ describe('Handlebars Helpers', () => {
 		});
 	});
 
-	context('When must render using markdown helper', () => {
-
-		const template = '<html><body>{{markdown example}}</body></html>';
-		const templateCompiled = Handlebars.compile(template, 'strict');
-
-		it('Should return the markdown value in html', () => {
-
-			const value = { example: '## Probando' };
-
-			assert.strictEqual(templateCompiled(value), '<html><body><h2 id="probando">Probando</h2></body></html>');
-		});
-	});
-
-	context('When must render using ansi helper', () => {
-
-		const template = '<html><body>{{ansi example}}</body></html>';
-		const templateCompiled = Handlebars.compile(template, 'strict');
-
-		it('Should return the ansi value in html', () => {
-
-			const value = { example: '\x1b[30mblack\x1b[37mwhite' };
-
-			assert.strictEqual(
-				templateCompiled(value),
-				'<html><body><span style="color:#2e3436">black<span style="color:#c5c5c5">white</span></span></body></html>');
-		});
-	});
-
 	context('When must render using lowercase helper', () => {
 
 		const template = '<html><body><h1>{{lowercase title}}</h1></body></html>';

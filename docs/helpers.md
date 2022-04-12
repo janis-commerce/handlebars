@@ -4,7 +4,6 @@
   * [lowercase](#lowercase)
   * [uppercase](#uppercase)
   * [sumArgs](#sumArgs)
-  * [markdown](#markdown)
   * [stringify](#stringify)
   * [eq](#eq)
   * [ne](#ne)
@@ -91,62 +90,6 @@ Parameters
 **Result example 🤩**
 ```html
 <html><body><p>Phrase: "USE THIS EXAMPLE!!!"</p></body></html>
-```
-***********************************************************
-### <a name="ansi"></a> ➡️ ansi
-Return template in html from `ansi` format 😲
-
-**Template 👀**
-```html
-<html><body>{{ansi example}}</body></html>
-```
-
-Parameters
-* `text`:
-	* type: `String`
-	* The text in ansi format to convert to html
-
-**Values ✍🏻**
-```js
-{
-  example: "\x1b[30mblack\x1b[37mwhite"
-}
-```
-**Result example 🤩**
-```html
-<html>
-	<body>
-		<span style="color:#2e3436">black<span style="color:#c5c5c5">white</span></span>
-	</body>
-</html>
-```
-***********************************************************
-### <a name="markdown"></a> ➡️ markdown
-Return template in html from `markdown` format 😲
-
-**Template 👀**
-```html
-<html><body>{{markdown example}}</body></html>
-```
-
-Parameters
-* `text`:
-	* type: `String`
-	* The text in markdown format to convert to html
-
-**Values ✍🏻**
-```js
-{
-	example: "## Test"
-}
-```
-**Result example 🤩**
-```html
-<html>
-	<body>
-		<h2 id="test">Test</h2>
-	</body>
-</html>
 ```
 ***********************************************************
 ### <a name="stringify"></a> ➡️ stringify

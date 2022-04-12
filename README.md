@@ -14,7 +14,7 @@ npm install @janiscommerce/handlebars
 ## 📢 API
 
 ### Description
-This package exports `Handlebars` with many helpers already registered, this will help us write faster and with more functionalities  
+This package exports `Handlebars` with many helpers already registered, this will help us write faster and with more functionalities
 ### Usage
 ```js
 const { Handlebars } = require('@janiscommerce/handlebars');
@@ -41,7 +41,6 @@ templateCompiled(values)
   * [lowercase](https://github.com/janis-commerce/handlebars/blob/master/docs/helpers.md#lowercase)
   * [uppercase](https://github.com/janis-commerce/handlebars/blob/master/docs/helpers.md#uppercase)
   * [sumArgs](https://github.com/janis-commerce/handlebars/blob/master/docs/helpers.md#sumArgs)
-  * [markdown](https://github.com/janis-commerce/handlebars/blob/master/docs/helpers.md#markdown)
   * [stringify](https://github.com/janis-commerce/handlebars/blob/master/docs/helpers.md#stringify)
   * [eq](https://github.com/janis-commerce/handlebars/blob/master/docs/helpers.md#eq)
   * [ne](https://github.com/janis-commerce/handlebars/blob/master/docs/helpers.md#ne)
