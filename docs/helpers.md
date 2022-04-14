@@ -1904,8 +1904,8 @@ Parameters
 ```html
 <html><body><h1>March 8, 2001, 12:00 AM GMT-3</h1></body></html>
 ```
-[Table of date formats](https://github.com/janis-commerce/handlebars/blob/master/docs/format-date-table.md#formatsTable)
-[Table of zones](https://github.com/janis-commerce/handlebars/blob/master/docs/format-date-table.md#zonesTable)
+* [Table of date formats](https://github.com/janis-commerce/handlebars/blob/JCN-QUICK-improve-format-date-helper-documentation/docs/formatDateTables.md#formatsTable)
+* [Table of zones](https://github.com/janis-commerce/handlebars/blob/JCN-QUICK-improve-format-date-helper-documentation/docs/formatDateTables.md#zonesTable)
 
 ***********************************************************
 
