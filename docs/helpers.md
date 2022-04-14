@@ -1906,8 +1906,8 @@ Parameters
 ```
 
 **More related information 🔍**
-* [Valid formats list](https://github.com/janis-commerce/handlebars/blob/JCN-QUICK-improve-format-date-helper-documentation/docs/format-date-list.md#formatsList)
-* [Valid zones list](https://github.com/janis-commerce/handlebars/blob/JCN-QUICK-improve-format-date-helper-documentation/docs/format-date-list.md#zonesList)
+* [Valid formats list](https://github.com/janis-commerce/handlebars/blob/master/docs/format-date-list.md#formatsList)
+* [Valid zones list](https://github.com/janis-commerce/handlebars/blob/master/docs/format-date-list.md#zonesList)
 
 ***********************************************************
 
