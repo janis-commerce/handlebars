@@ -1,6 +1,6 @@
 ## **Format date** 👀
 
-### <a name="formatsTable"></a> Table of date formats ⬇️
+### <a name="formatsList"></a> List of valid date formats ⬇️
 
 | **Name**   |      **Description**      |  **Example**  |
 |----------|:-------------:|------:|
@@ -52,9 +52,48 @@ See more supported formats: [date-fns formats](https://date-fns.org/v2.28.0/docs
 
 ***********************************************************
 
-### <a name="zonesTable"></a> Table of zones ⬇️
+### <a name="zonesList"></a> List of valid zones ⬇️
 
 | **Name**   |      **Description**      |
 |----------|:-------------:|
+| `es` | Spanish (Spain)  |
 | `enUS` | English (United States) |
-| `enUS` | English - United States  |
+| `enAU` | English (Australia)  |
+| `enCA` | English (Canada)  |
+| `enGB` | English (United Kingdom)  |
+| `enIE` | English (Ireland)  |
+| `enNZ` | English (New Zealand)  |
+| `enZA` | English (South Africa)  |
+| `pt` | Portuguese (Portugal)  |
+| `ptBR` | Portuguese (Brazil)  |
+| `af` | Afrikaans  |
+| `arDZ` | Arabic (Algeria)  |
+| `arEG` | Arabic (Egypt)  |
+| `arMA` | Arabic (Morocco)  |
+| `arSA` | Arabic (Saudi Arabia)  |
+| `arTN` | Arabic (Tunisia)  |
+| `be` | Belarusian  |
+| `bg` | Bulgarian  |
+| `ca` | Catalan  |
+| `cs` | Czech  |
+| `da` | Danish  |
+| `de` | German (Standard)  |
+| `deAT` | German (Austria)  |
+| `el` | Greek  |
+| `et` | Estonian  |
+| `fr` | French (Standard)  |
+| `frCA` | French (Canada)  |
+| `frCH` | French (Switzerland)  |
+| `hi` | Hindi  |
+| `hr` | Croatian  |
+| `hu` | Hungarian  |
+| `id` | Indonesian  |
+| `it` | Italian (Standard)  |
+| `ja` | Japanese  |
+| `ko` | Korean  |
+| `ru` | Russian  |
+| `tr` | Turkish  |
+| `vi` | Vietnamese  |
+| `zhCN` | Chinese (PRC)  |
+| `zhHK` | Chinese (Hong Kong)  |
+| `zhTW` | Chinese (Taiwan)  |
