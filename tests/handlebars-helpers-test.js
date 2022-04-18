@@ -109,6 +109,34 @@ describe('Handlebars Helpers', () => {
 			assert.strictEqual(templateCompiled(value), `<html><body><h1>${format()}</h1></body></html>`);
 		});
 	});
+	context('When must render using formatDate helper without a valid date', () => {
+
+		const template = '<html><body><h1>{{formatDate date format timeZone}}</h1></body></html>';
+		const templateCompiled = Handlebars.compile(template, 'strict');
+
+		it('Should return the date formatted in html when passed format and zone', () => {
+
+			const value = {
+				date: undefined,
+				format: 'PPPPpppp',
+				zone: 'enAU'
+			};
+
+			const newDate = new Date(value.date);
+
+			const format = () => {
+				try {
+					return fnsFormat(newDate, value.format, {
+						locale: zones[value.zone]
+					});
+				} catch(e) {
+					return e.message;
+				}
+			};
+
+			assert.strictEqual(templateCompiled(value), `<html><body><h1>${format()}</h1></body></html>`);
+		});
+	});
 
 	context('When must render using formatDate helper with zone and timeZone', () => {
 
