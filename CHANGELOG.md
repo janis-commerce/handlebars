@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.0.2] - 2022-04-18
+### Fixed
+- Add try/catch in `formatDate` helper to avoid errors
+
 ## [2.0.1] - 2022-04-18
 ### Fixed
 - Fix in `formatDate` helper
