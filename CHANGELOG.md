@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.0.1] - 2022-04-18
+### Fixed
+- Fix in `formatDate` helper
+
 ## [2.0.0] - 2022-04-12
 ### Changed
 - Add the possibility to use a `timezone` in `formatDate` helper
