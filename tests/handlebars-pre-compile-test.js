@@ -52,7 +52,7 @@ describe('Handlebars PreCompile', () => {
 
 		it('Should return an error when pass a empty object', () => {
 
-			assert.throws(() => Handlebars.preCompile({}), { name: 'Error', message: 'Template values must\n be empty object' });
+			assert.throws(() => Handlebars.preCompile({}), { name: 'Error', message: 'Template values can\'t be an empty object' });
 
 			sinon.assert.notCalled(QRCode.toDataURL);
 
