@@ -1,7 +1,9 @@
 'use strict';
 
+require('lllog')('none');
+
 const assert = require('assert');
-const sandbox = require('sinon').createSandbox();
+const sinon = require('sinon');
 const QRCode = require('qrcode');
 const bwipjs = require('bwip-js');
 
@@ -32,9 +34,9 @@ describe('Handlebars PreCompile', () => {
 			}
 		];
 
-		sandbox.spy(QRCode, 'toDataURL');
+		sinon.spy(QRCode, 'toDataURL');
 
-		sandbox.spy(bwipjs, 'toBuffer');
+		sinon.spy(bwipjs, 'toBuffer');
 
 		templateValues.forEach(({ type, value }) => {
 
@@ -42,9 +44,9 @@ describe('Handlebars PreCompile', () => {
 
 				assert.throws(() => Handlebars.preCompile(value), { name: 'Error', message: 'Template Values must be an object' });
 
-				sandbox.assert.notCalled(QRCode.toDataURL);
+				sinon.assert.notCalled(QRCode.toDataURL);
 
-				sandbox.assert.notCalled(bwipjs.toBuffer);
+				sinon.assert.notCalled(bwipjs.toBuffer);
 			});
 		});
 
@@ -52,9 +54,9 @@ describe('Handlebars PreCompile', () => {
 
 			assert.throws(() => Handlebars.preCompile({}), { name: 'Error', message: 'Template values must\n be empty object' });
 
-			sandbox.assert.notCalled(QRCode.toDataURL);
+			sinon.assert.notCalled(QRCode.toDataURL);
 
-			sandbox.assert.notCalled(bwipjs.toBuffer);
+			sinon.assert.notCalled(bwipjs.toBuffer);
 		});
 	});
 
@@ -62,7 +64,7 @@ describe('Handlebars PreCompile', () => {
 	context('When the document must render QR Code', () => {
 
 		beforeEach(() => {
-			sandbox.restore();
+			sinon.restore();
 		});
 
 		const qr = 'https://www.google.com/';
@@ -88,7 +90,7 @@ describe('Handlebars PreCompile', () => {
 
 		it('Should return the qr replaced when it is an string', async () => {
 
-			sandbox.stub(QRCode, 'toDataURL').resolves(qrCode);
+			sinon.stub(QRCode, 'toDataURL').resolves(qrCode);
 
 			const preCompileResponse = await Handlebars.preCompile(data);
 
@@ -97,7 +99,7 @@ describe('Handlebars PreCompile', () => {
 
 		it('Should return the qr replaced when it is an object', async () => {
 
-			sandbox.stub(QRCode, 'toDataURL').resolves(qrCode);
+			sinon.stub(QRCode, 'toDataURL').resolves(qrCode);
 
 			const preCompileResponse = await Handlebars.preCompile({ ...data, qr_data: qrObject });
 
@@ -106,7 +108,7 @@ describe('Handlebars PreCompile', () => {
 
 		it('Should return the qr replaced when it is an array', async () => {
 
-			sandbox.stub(QRCode, 'toDataURL').resolves(qrCode);
+			sinon.stub(QRCode, 'toDataURL').resolves(qrCode);
 
 			const preCompileResponse = await Handlebars.preCompile({ ...data, qr_data: qrArray });
 
@@ -126,7 +128,7 @@ describe('Handlebars PreCompile', () => {
 				]
 			};
 
-			sandbox.stub(QRCode, 'toDataURL').resolves(qrCode);
+			sinon.stub(QRCode, 'toDataURL').resolves(qrCode);
 
 			const preCompileResponse = await Handlebars.preCompile(dataWithArray);
 
@@ -152,7 +154,7 @@ describe('Handlebars PreCompile', () => {
 				}
 			};
 
-			sandbox.stub(QRCode, 'toDataURL').resolves(qrCode);
+			sinon.stub(QRCode, 'toDataURL').resolves(qrCode);
 
 			const preCompileResponse = await Handlebars.preCompile(dataWithObject);
 
@@ -169,7 +171,7 @@ describe('Handlebars PreCompile', () => {
 	context('When the document must render Barcode128 Code', () => {
 
 		beforeEach(() => {
-			sandbox.restore();
+			sinon.restore();
 		});
 
 		const barCode128 = '123123';
@@ -193,7 +195,7 @@ describe('Handlebars PreCompile', () => {
 
 		it('Should return the barcode128 replaced when it is an string', async () => {
 
-			sandbox.stub(bwipjs, 'toBuffer').resolves(barcode128Code);
+			sinon.stub(bwipjs, 'toBuffer').resolves(barcode128Code);
 
 			const preCompileResponse = await Handlebars.preCompile(data);
 
@@ -216,7 +218,7 @@ describe('Handlebars PreCompile', () => {
 				]
 			};
 
-			sandbox.stub(bwipjs, 'toBuffer').resolves(barcode128Code);
+			sinon.stub(bwipjs, 'toBuffer').resolves(barcode128Code);
 
 			const preCompileResponse = await Handlebars.preCompile(dataWithArray);
 
@@ -233,6 +235,15 @@ describe('Handlebars PreCompile', () => {
 					}
 				]
 			});
+		});
+
+		it('Should return undefined when it fails to generate the barcode (not supported characters)', async () => {
+
+			sinon.spy(bwipjs, 'toBuffer');
+
+			const preCompileResponse = await Handlebars.preCompile({ ...data, barcode128_ean: 'elcaimán_09090' });
+
+			assert.deepStrictEqual(preCompileResponse, { ...response, barcode128_ean: undefined });
 		});
 	});
 });
