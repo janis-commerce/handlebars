@@ -38,6 +38,7 @@
   * [count](#count)
   * [hasSubStr](#hasSubStr)
   * [customFormatPrice](#customFormatPrice)
+  * [currency](#currency)
   * [sumArray](#sumArray)
   * [isNegative](#isNegative)
   * [base1Index](#base1Index)
@@ -1693,7 +1694,9 @@ Parameters
 
 ***********************************************************
 
-### <a name="customFormatPrice"></a> ➡️ customFormatPrice
+### <a name="customFormatPrice"></a> ➡️ customFormatPrice - :warning: Deprecated
+
+#### :ok: Use `currency` instead
 
 Format `price` 😲
 
@@ -1739,6 +1742,57 @@ Parameters
 **Result example 🤩**
 ```html
 <html><body><h1>$12.345,123</h1></body></html>
+```
+
+***********************************************************
+
+### <a name="currency"></a> ➡️ currency
+
+Format `price` 😲
+
+This works internally with `Intl.numberFormat`, [see docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat).
+
+**Template 👀**
+```html
+<html>
+	<body>
+		<h1>{{currency number locale=order.locale currencyCode=order.currency, currencyDisplay="symbol"}}</h1>
+	</body>
+</html>
+```
+
+Parameters
+* `number`:
+	* type: `Number`
+	* The number to format to price
+
+Options
+* `locale`
+	* type: `String`
+	* The locale to use for formatting. This must be a valid locale, including a [Language ISO639 2-digit code](https://es.wikipedia.org/wiki/ISO_639-1) and a [Country ISO3166 2-digit code](https://es.wikipedia.org/wiki/ISO_3166-1) separated by a hypen (`-`). Default is `en-US`
+* `currencyCode`
+	* type:
+	  * `String`
+	* The currency ISO 3-digit code. Default is `USD`.
+* `currencyDisplay`
+	* type:
+	  * `String`
+	* Whether to show the currency `code` or `symbol`. Default is `symbol`.
+	* **Warning**: Depending on the `locale` and `currencyCode`, symbol can be the same as the ISO 3-digit code.
+
+**Values ✍🏻**
+```js
+{
+	order: {
+		number: 12345.12345,
+		locale: 'es-AR',
+		currency: 'ARS'
+	}
+}
+```
+**Result example 🤩**
+```html
+<html><body><h1>$ 12.345,12</h1></body></html>
 ```
 
 ***********************************************************
