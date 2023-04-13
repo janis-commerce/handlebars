@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.1.0] - 2023-04-13
+### Added
+- New helpers `formatNumber` and `currency`
+
+### Changed
+- Package documentation rewrite
+
+### Deprecated
+- Deprecated helpers `concat`, `customFormatPrice`, `formatWeight`, `indexof`, `isFalse`, `isTrue`, `sanitize`, `set`, `stringify`, `stripHost`
+
 ## [2.0.3] - 2022-11-12
 ### Fixed
 - Handled barcode128 generation errors to be able to pre compile without interrupting the process
