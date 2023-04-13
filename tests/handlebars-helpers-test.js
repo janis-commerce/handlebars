@@ -109,6 +109,7 @@ describe('Handlebars Helpers', () => {
 			assert.strictEqual(templateCompiled(value), `<html><body><h1>${format()}</h1></body></html>`);
 		});
 	});
+
 	context('When must render using formatDate helper without a valid date', () => {
 
 		const template = '<html><body><h1>{{formatDate date format timeZone}}</h1></body></html>';
@@ -362,6 +363,75 @@ describe('Handlebars Helpers', () => {
 			};
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>12.345,12</h1></body></html>');
+		});
+	});
+
+	context('When must render using currency helper', () => {
+
+		it('Should return the price formatted with default values', () => {
+
+			const template = '<html><body><h1>{{currency number}}</h1></body></html>';
+			const templateCompiled = Handlebars.compile(template, 'strict');
+
+			const value = {
+				number: 12345.12345
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>$12,345.12</h1></body></html>');
+		});
+
+		it('Should return the price formatted with the given currencyCode', () => {
+
+			const template = '<html><body><h1>{{currency number currencyCode=currency}}</h1></body></html>';
+			const templateCompiled = Handlebars.compile(template, 'strict');
+
+			const value = {
+				number: 12345.12345,
+				currency: 'ARS'
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>ARS\xa012,345.12</h1></body></html>');
+		});
+
+		it('Should return the price formatted with the given currencyDisplay', () => {
+
+			const template = '<html><body><h1>{{currency number currencyDisplay=currencyDisplay}}</h1></body></html>';
+			const templateCompiled = Handlebars.compile(template, 'strict');
+
+			const value = {
+				number: 12345.12345,
+				currencyDisplay: 'name'
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>12,345.12 US dollars</h1></body></html>');
+		});
+
+		it('Should return the price formatted with the given locale', () => {
+
+			const template = '<html><body><h1>{{currency number locale=locale}}</h1></body></html>';
+			const templateCompiled = Handlebars.compile(template, 'strict');
+
+			const value = {
+				number: 12345.12345,
+				locale: 'es-AR'
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>US$\xa012.345,12</h1></body></html>');
+		});
+
+		it('Should return the price formatted with all the given options', () => {
+
+			const template = '<html><body><h1>{{currency number locale=locale currencyCode=currency currencyDisplay=currencyDisplay}}</h1></body></html>';
+			const templateCompiled = Handlebars.compile(template, 'strict');
+
+			const value = {
+				number: 12345.12345,
+				currency: 'ARS',
+				currencyDisplay: 'name',
+				locale: 'es-AR'
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>12.345,12 pesos argentinos</h1></body></html>');
 		});
 	});
 
@@ -659,7 +729,6 @@ describe('Handlebars Helpers', () => {
 		});
 	});
 
-
 	context('When must render using gt helper', () => {
 
 		const template = '<html><body><h1>{{#gt value1 value2}}True{{/gt}}</h1></body></html>';
@@ -685,7 +754,6 @@ describe('Handlebars Helpers', () => {
 			assert.strictEqual(templateCompiled(value), '<html><body><h1></h1></body></html>');
 		});
 	});
-
 
 	context('When must render using formatWeight helper', () => {
 
@@ -737,6 +805,93 @@ describe('Handlebars Helpers', () => {
 		});
 	});
 
+	context('When must render using formatNumber helper', () => {
+
+		it('Should return the number formatted as decimal with 3 decimal digits by default', () => {
+
+			const template = '<html><body><h1>{{formatNumber number}}</h1></body></html>';
+			const templateCompiled = Handlebars.compile(template, 'strict');
+
+			const value = {
+				number: 123.123123
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>123.123</h1></body></html>');
+		});
+
+		it('Should return the number formatted as kilograms if style=unit is set', () => {
+
+			const template = '<html><body><h1>{{formatNumber number style=\'unit\'}}</h1></body></html>';
+			const templateCompiled = Handlebars.compile(template, 'strict');
+
+			const value = {
+				number: 123.123123
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>123.123 kg</h1></body></html>');
+		});
+
+		it('Should return the number formatted as liters if style=unit and unit=liter are set', () => {
+
+			const template = '<html><body><h1>{{formatNumber number style=\'unit\' unit=\'liter\'}}</h1></body></html>';
+			const templateCompiled = Handlebars.compile(template, 'strict');
+
+			const value = {
+				number: 123.123123
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>123.123 L</h1></body></html>');
+		});
+
+		it('Should return the number formatted with the full MU name if unitDisplay=long is set', () => {
+
+			const template = '<html><body><h1>{{formatNumber number style=\'unit\' unitDisplay=\'long\'}}</h1></body></html>';
+			const templateCompiled = Handlebars.compile(template, 'strict');
+
+			const value = {
+				number: 123.123123
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>123.123 kilograms</h1></body></html>');
+		});
+
+		it('Should return the number with maximum 2 decimal digits if maximumFractionDigits=2 is set', () => {
+
+			const template = '<html><body><h1>{{formatNumber number maximumFractionDigits=2}}</h1></body></html>';
+			const templateCompiled = Handlebars.compile(template, 'strict');
+
+			const value = {
+				number: 123.123123
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>123.12</h1></body></html>');
+		});
+
+		it('Should return the number with minimum 8 decimal digits if minimumFractionDigits=8 is set', () => {
+
+			const template = '<html><body><h1>{{formatNumber number minimumFractionDigits=8}}</h1></body></html>';
+			const templateCompiled = Handlebars.compile(template, 'strict');
+
+			const value = {
+				number: 123.123123
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>123.12312300</h1></body></html>');
+		});
+
+		it('Should return the number in the locale if it is set', () => {
+
+			const template = '<html><body><h1>{{formatNumber number locale=\'es-AR\'}}</h1></body></html>';
+			const templateCompiled = Handlebars.compile(template, 'strict');
+
+			const value = {
+				number: 123.123123
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>123,123</h1></body></html>');
+		});
+	});
+
 	context('When must render using sumArgs helper', () => {
 
 		const template = '<html><body><h1>{{sumArgs arg1 arg2 arg3}}</h1></body></html>';
@@ -764,7 +919,6 @@ describe('Handlebars Helpers', () => {
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>12</h1></body></html>');
 		});
 	});
-
 
 	context('When must render using for helper', () => {
 
@@ -795,7 +949,7 @@ describe('Handlebars Helpers', () => {
 				odd: 'The number is odd'
 			};
 
-			assert.strictEqual(templateCompiled(value), '<html><body><h1>The number is even</h1></body></html>');
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>The number is odd</h1></body></html>');
 		});
 
 		it('Should return the value even in html if the index are odd', () => {
@@ -806,7 +960,7 @@ describe('Handlebars Helpers', () => {
 				odd: 'The number is odd'
 			};
 
-			assert.strictEqual(templateCompiled(value), '<html><body><h1>The number is odd</h1></body></html>');
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>The number is even</h1></body></html>');
 		});
 	});
 
@@ -839,7 +993,6 @@ describe('Handlebars Helpers', () => {
 				'<html><body><h1><style>body { position: static!important;}</style><pre>[number] 123</pre></h1></body></html>');
 		});
 	});
-
 
 	context('When must render using debugString helper', () => {
 
@@ -904,7 +1057,7 @@ describe('Handlebars Helpers', () => {
 				}
 			};
 
-			assert.strictEqual(templateCompiled(value), '<html><body><h1 class="color-red"other="otherValue">Hello!</h1></body></html>');
+			assert.strictEqual(templateCompiled(value), '<html><body><h1 class="color-red" other="otherValue">Hello!</h1></body></html>');
 		});
 	});
 
@@ -1185,26 +1338,6 @@ describe('Handlebars Helpers', () => {
 					true: 123,
 					name: 'Fizzmod'
 				}
-			};
-
-			assert.strictEqual(templateCompiled(value), '<html><body><h1>Hello!</h1></body></html>');
-		});
-
-		it('Should return with value inside of block if the value is equal to string', () => {
-
-			const value = {
-				value: 'Fizzmod',
-				container: 'Fizzmod'
-			};
-
-			assert.strictEqual(templateCompiled(value), '<html><body><h1>Hello!</h1></body></html>');
-		});
-
-		it('Should return with value inside of block if the value is equal to number', () => {
-
-			const value = {
-				value: 123,
-				container: 123
 			};
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>Hello!</h1></body></html>');

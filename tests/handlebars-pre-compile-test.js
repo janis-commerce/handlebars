@@ -15,6 +15,16 @@ describe('Handlebars PreCompile', () => {
 
 	context('When the template values is not valid', () => {
 
+		beforeEach(() => {
+			sinon.spy(QRCode, 'toDataURL');
+
+			sinon.spy(bwipjs, 'toBuffer');
+		});
+
+		afterEach(() => {
+			sinon.restore();
+		});
+
 		const templateValues = [
 			{
 				type: 'string',
@@ -33,10 +43,6 @@ describe('Handlebars PreCompile', () => {
 				value: null
 			}
 		];
-
-		sinon.spy(QRCode, 'toDataURL');
-
-		sinon.spy(bwipjs, 'toBuffer');
 
 		templateValues.forEach(({ type, value }) => {
 
@@ -63,7 +69,7 @@ describe('Handlebars PreCompile', () => {
 
 	context('When the document must render QR Code', () => {
 
-		beforeEach(() => {
+		afterEach(() => {
 			sinon.restore();
 		});
 
@@ -170,7 +176,7 @@ describe('Handlebars PreCompile', () => {
 
 	context('When the document must render Barcode128 Code', () => {
 
-		beforeEach(() => {
+		afterEach(() => {
 			sinon.restore();
 		});
 
