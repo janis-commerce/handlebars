@@ -955,9 +955,18 @@ describe('Handlebars Helpers', () => {
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>0.083</h1></body></html>');
 		});
 
-		it('Should return 0  if the values are not passed', () => {
+		it('Should return 0 if the values are not passed', () => {
 
 			const value = {};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>0</h1></body></html>');
+		});
+
+		it('Should return 0 if only one value is passed', () => {
+
+			const value = {
+				value1: 5
+			};
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>0</h1></body></html>');
 		});
