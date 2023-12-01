@@ -37,6 +37,7 @@
 * [sumArgs](#sumArgs)
 * [sumArray](#sumArray)
 * [uppercase](#uppercase)
+* [multiply](#multiply)
 
 ### Deprecated helpers
 
@@ -1413,6 +1414,42 @@ Something is true
 **:sparkles: Result**
 ```html
 <p>John Doe in uppercase is JOHN DOE</p>
+```
+
+</details>
+
+---
+
+### `multiply`
+
+<details>
+<summary><b>Expression</b>: Multiply two values</summary>
+
+> Return the multiplication of two values
+
+**Parameters**
+* `value1`:
+	* type: `number` - The first number to multiply
+* `value2`:
+	* type: `number` - The second number to multiply.
+
+**:computer: Template**
+
+```handlebars
+<p>{{multiply purchasedQuantity sellingUnitMultiplier}}</p>
+```
+
+**:inbox_tray: Values**
+```js
+{
+	purchasedQuantity: 6,
+	sellingUnitMultiplier: 1.5
+}
+```
+
+**:sparkles: Result**
+```html
+<p>9</p>
 ```
 
 </details>
