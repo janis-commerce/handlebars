@@ -920,6 +920,71 @@ describe('Handlebars Helpers', () => {
 		});
 	});
 
+	context('When must render using multiply helper', () => {
+
+		const template = '<html><body><h1>{{multiply value1 value2 decimals}}</h1></body></html>';
+		const templateCompiled = Handlebars.compile(template, 'strict');
+
+		it('Should return the multiply of two values', () => {
+
+			const value = {
+				value1: 3,
+				value2: 5
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>15</h1></body></html>');
+		});
+
+		it('Should return the multiply of two decimal values', () => {
+
+			const value = {
+				value1: 1.5,
+				value2: 2.5
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>3.75</h1></body></html>');
+		});
+
+		it('Should return the multiply with two decimal places and rounded down', () => {
+
+			const value = {
+				value1: 1.33,
+				value2: 2.44
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>3.24</h1></body></html>');
+		});
+
+		it('Should return the multiply with the specified number of decimal places and rounded down', () => {
+
+			const value = {
+				value1: 1.33,
+				value2: 2.44,
+				decimals: 4
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>3.2452</h1></body></html>');
+		});
+
+		it('Should return 0 if the values are not passed', () => {
+
+			const value = {};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>0</h1></body></html>');
+		});
+
+		it('Should return 0 if only one value is passed', () => {
+
+			const value = {
+				value1: 5
+			};
+
+			assert.strictEqual(templateCompiled(value), '<html><body><h1>0</h1></body></html>');
+		});
+
+
+	});
+
 	context('When must render using for helper', () => {
 
 		const template = '<html><body><h1>{{#for from to}}<li>Index: {{this}}</li>{{/for}}</h1></body></html>';
