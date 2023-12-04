@@ -1432,11 +1432,13 @@ Something is true
 	* type: `number` - The first number to multiply
 * `value2`:
 	* type: `number` - The second number to multiply.
+* `decimals`:
+	* type: `number` - The number of decimals to round to (default is 2).
 
 **:computer: Template**
 
 ```handlebars
-<p>{{multiply purchasedQuantity sellingUnitMultiplier}}</p>
+<p>{{multiply purchasedQuantity sellingUnitMultiplier decimals}}</p>
 ```
 
 **:inbox_tray: Values**
@@ -1450,6 +1452,20 @@ Something is true
 **:sparkles: Result**
 ```html
 <p>9</p>
+```
+
+**:inbox_tray: Values**
+```js
+{
+	purchasedQuantity: 7,
+	sellingUnitMultiplier: 3.45678,
+	decimals: 4
+}
+```
+
+**:sparkles: Result**
+```html
+<p>24.1974</p>
 ```
 
 </details>
