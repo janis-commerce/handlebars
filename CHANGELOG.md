@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.2.0] - 2023-12-04
+### Added
+- New helper `multiply`
+
 ## [2.1.0] - 2023-04-13
 ### Added
 - New helpers `formatNumber` and `currency`
