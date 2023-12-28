@@ -1351,36 +1351,73 @@ Something is true
 > Returns the sum of all the elements of an array
 
 **Parameters**
-* `array`:
-	* type: `array` - The array that contains the elements to sum
-* `key`:
-	* type: `array` - The property that contains the number to sum in case the array contains object. If not set, an array of number will be assumed.
+
+- `array`:
+  - type: `array` - The array that contains the elements to sum
+- `key`:
+  - type: `string` - The property that contains the number to sum in case the array contains object. It can passed as a property of the data or as string. If not set, an array of number will be assumed.
+
+**First case**
 
 **:computer: Template**
 
 ```handlebars
-<p>{{sumArray items price}}</p>
+<p>{{sumArray items key}}</p>
 ```
 
 **:inbox_tray: Values**
+
 ```js
 {
-	items: [
-		{
-			name: 'Carrot',
-			price: 10
-		},
-		{
-			name: 'Lettuce',
-			price: 15
-		}
-	]
+  items: [
+    {
+      name: 'Carrot',
+      price: 10,
+    },
+    {
+      name: 'Lettuce',
+      price: 15,
+    },
+  ],
+	key: 'price'
 }
 ```
 
 **:sparkles: Result**
+
 ```html
 <p>25</p>
+```
+
+**Second case**
+
+**:computer: Template**
+
+```handlebars
+<p>{{sumArray items 'price'}}</p>
+```
+
+**:inbox_tray: Values**
+
+```js
+{
+  items: [
+    {
+      name: 'Carrot',
+      price: 20,
+    },
+    {
+      name: 'Lettuce',
+      price: 30,
+    },
+  ];
+}
+```
+
+**:sparkles: Result**
+
+```html
+<p>50</p>
 ```
 
 </details>

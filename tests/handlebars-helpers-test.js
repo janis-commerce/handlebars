@@ -279,6 +279,22 @@ describe('Handlebars Helpers', () => {
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>4</h1></body></html>');
 		});
+
+		const secondTemplate = '<html><body><h1>{{sumArray array "number"}}</h1></body></html>';
+		const secondTemplateCompiled = Handlebars.compile(secondTemplate, 'strict');
+
+		it('Should return the sum of all numbers in the array in html with the second parameter as a string', () => {
+
+			const value = {
+				array: [
+					{ number: 1 },
+					{ number: 2 },
+					{ number: 3 }
+				]
+			};
+
+			assert.strictEqual(secondTemplateCompiled(value), '<html><body><h1>6</h1></body></html>');
+		});
 	});
 
 	context('When must render using customFormatPrice helper', () => {
