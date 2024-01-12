@@ -13,7 +13,7 @@ const {
 describe('Handlebars PostCompile', () => {
 
 	// eslint-disable-next-line max-len
-	const template = 'Hi! This is my professional website #SHORTLINK[https://www.professional.com], and this my personal website #SHORTLINK[https://www.personal.com]';
+	const template = 'Hi! This is my professional website #SHORTLINK[https://www.professional.com/about?fq=H:197], and this my personal website #SHORTLINK[https://www.personal.com]';
 
 	const shortLink1 = 'https://link.janisdev.in/api/l/G2WTXXZ';
 
@@ -89,7 +89,7 @@ describe('Handlebars PostCompile', () => {
 	context('When keep the original link', () => {
 
 		// eslint-disable-next-line max-len
-		const compiledTemplateWithOriginalLinks = 'Hi! This is my professional website https://www.professional.com, and this my personal website https://www.personal.com';
+		const compiledTemplateWithOriginalLinks = 'Hi! This is my professional website https://www.professional.com/about?fq=H:197, and this my personal website https://www.personal.com';
 
 		it('Should keep the original link if setting is off', async () => {
 
