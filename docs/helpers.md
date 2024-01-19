@@ -1476,7 +1476,7 @@ Something is true
 <summary><b>Expression</b>: Formatted a link for a provided URL</summary>
 
 > Return the link with this format #SHORTLINK[link].
-> If the link is not a valid URL, return 'Invalid URL'
+> If the link is not a valid URL, return an empty string
 
 **Parameters**
 * `value`:
@@ -1509,7 +1509,7 @@ Something is true
 
 **:sparkles: Result**
 ```html
-<p>Invalid URL</p>
+<p></p>
 ```
 
 **:computer: Template**

@@ -1662,13 +1662,13 @@ describe('Handlebars Helpers', () => {
 			assert.strictEqual(templateCompiled(values), '<html><body><h1>#SHORTLINK[https://janis.im]</h1></body></html>');
 		});
 
-		it('Should return Invalid URL if link has an invalid format', () => {
+		it('Should return an empty string if link has an invalid format', () => {
 
 			const values = {
 				url: 'janis.im'
 			};
 
-			assert.strictEqual(templateCompiled(values), '<html><body><h1>Invalid URL</h1></body></html>');
+			assert.strictEqual(templateCompiled(values), '<html><body><h1></h1></body></html>');
 		});
 
 		const otherTemplate = '<html><body><h1>{{shortLink "https://janis.im"}}</h1></body></html>';
