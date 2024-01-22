@@ -1671,10 +1671,10 @@ describe('Handlebars Helpers', () => {
 			assert.strictEqual(templateCompiled(values), '<html><body><h1></h1></body></html>');
 		});
 
-		const otherTemplate = '<html><body><h1>{{shortLink "https://janis.im"}}</h1></body></html>';
-		const otherTemplateCompiled = Handlebars.compile(otherTemplate, 'strict');
-
 		it('Should return template with value in string if value is number', () => {
+
+			const otherTemplate = '<html><body><h1>{{shortLink "https://janis.im"}}</h1></body></html>';
+			const otherTemplateCompiled = Handlebars.compile(otherTemplate, 'strict');
 
 			assert.strictEqual(otherTemplateCompiled({}), '<html><body><h1>#SHORTLINK[https://janis.im]</h1></body></html>');
 		});
