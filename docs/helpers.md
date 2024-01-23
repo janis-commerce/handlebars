@@ -1507,6 +1507,63 @@ Something is true
 
 </details>
 
+### `shortLink`
+
+<details>
+<summary><b>Expression</b>: Formatted a link for a provided URL</summary>
+
+> Return the link with this format #SHORTLINK[link].
+> If the link is not a valid URL, return an empty string
+
+**Parameters**
+* `value`:
+	* type: `string` - The URL to be used for creating the formatted link
+
+**:computer: Template**
+
+```handlebars
+<p>{{shortLink url}}</p>
+```
+
+**:inbox_tray: Values**
+```js
+{
+	url: 'https://janis.im'
+}
+```
+
+**:sparkles: Result**
+```html
+<p>#SHORTLINK[https://janis.im]</p>
+```
+
+**:inbox_tray: Values**
+```js
+{
+	url: 'janis.im'
+}
+```
+
+**:sparkles: Result**
+```html
+<p></p>
+```
+
+**:computer: Template**
+
+```handlebars
+<p>{{shortLink "https://janis.im"}}</p>
+```
+
+**:sparkles: Result**
+```html
+<p>#SHORTLINK[https://janis.im]</p>
+```
+
+</details>
+
+
+
 ## :x: Deprecated helpers
 
 ### `concat`
