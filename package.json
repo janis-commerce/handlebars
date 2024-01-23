@@ -1,6 +1,6 @@
 {
   "name": "@janiscommerce/handlebars",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "For manage Handlebars with custom helpers",
   "main": "lib/index.js",
   "scripts": {
