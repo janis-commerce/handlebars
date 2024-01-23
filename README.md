@@ -35,6 +35,8 @@ templateCompiled(values)
 
 ## 📢 [Pre Compile](docs/preCompile.md) the template values
 
+## 📢 [Post Compile](docs/postCompile.md) the compiled template
+
 ## 📢 Helpers
 
 This package extends [built-in helpers](https://handlebarsjs.com/guide/builtin-helpers.html). See [custom helpers](docs/helpers.md) for more docs and usage.
