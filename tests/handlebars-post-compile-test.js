@@ -72,6 +72,17 @@ describe('Handlebars PostCompile', () => {
 			sinon.spy(Invoker, 'serviceSafeCall');
 		});
 
+		it('Should return an error when there is no template', async () => {
+
+			await assert.rejects(Handlebars.postCompile(), { message: 'Template must be a string' });
+
+		});
+
+		it('Should return an error when templete is not a string', async () => {
+
+			await assert.rejects(Handlebars.postCompile({ example: 'wrong-template' }), { message: 'Template must be a string' });
+
+		});
 
 		it('Should return the same template if there are no links to shorten', async () => {
 
