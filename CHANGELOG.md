@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.3.0] - 2024-01-23
+### Added
+- New helper `shortLink`
+- New functionality that supports the handling of `#SHORTLINK[link]` pattern in template. [See More](https://github.com/janis-commerce/handlebars/blob/master/docs/postCompile.md)
+
 ## [2.2.0] - 2023-12-04
 ### Added
 - New helper `multiply`
