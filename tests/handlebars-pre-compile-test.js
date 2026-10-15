@@ -66,7 +66,6 @@ describe('Handlebars PreCompile', () => {
 		});
 	});
 
-
 	context('When the document must render QR Code', () => {
 
 		afterEach(() => {
@@ -245,7 +244,7 @@ describe('Handlebars PreCompile', () => {
 
 		it('Should return undefined when it fails to generate the barcode (not supported characters)', async () => {
 
-			sinon.spy(bwipjs, 'toBuffer');
+			sinon.stub(bwipjs, 'toBuffer').rejects(new Error('bwipp.code128badCharacter'));
 
 			const preCompileResponse = await Handlebars.preCompile({ ...data, barcode128_ean: 'elcaimán_09090' });
 

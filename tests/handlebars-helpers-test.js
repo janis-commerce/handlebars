@@ -354,7 +354,6 @@ describe('Handlebars Helpers', () => {
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>$12345</h1></body></html>');
 		});
 
-
 		it('Should return the price formatted with default thousands separator in html', () => {
 
 			const value = {
@@ -998,7 +997,6 @@ describe('Handlebars Helpers', () => {
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>0</h1></body></html>');
 		});
 
-
 	});
 
 	context('When must render using for helper', () => {
@@ -1158,7 +1156,6 @@ describe('Handlebars Helpers', () => {
 
 			assert.strictEqual(templateCompiled(value), '<html><body><h1>Rocky</h1><h2>Balboa</h2></body></html>');
 		});
-
 
 		it('Should return an empty string if when parsing throw an error', () => {
 
@@ -1549,7 +1546,6 @@ describe('Handlebars Helpers', () => {
 				},
 				format: true
 			};
-
 
 			assert.strictEqual(templateCompiled(value),
 				`<html><body><h1>${JSON.stringify(value.example, ' ', 4)}</h1></body></html>`);
